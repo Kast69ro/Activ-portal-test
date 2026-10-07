@@ -10,7 +10,7 @@ export default [
     section: "knowledge",
     order: 10,
     titleKey: "video.title",
-    page: lazy(() => import("./VideoLessonsPage")),
+    page: lazy(() => import("./pages/VideoLessonsPage/VideoLessonsPage")),
   },
   {
     id: "documentation",
@@ -19,6 +19,6 @@ export default [
     section: "knowledge",
     order: 20,
     titleKey: "documentation.title",
-    page: lazy(() => import("./DocumentationPage")),
+    page: lazy(() => import("./pages/DocumentationPage/DocumentationPage")),
   },
 ];

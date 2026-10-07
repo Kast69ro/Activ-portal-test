@@ -42,14 +42,14 @@ import { formatDateTime } from "@/shared/lib/format";
 import { selectIsAdmin } from "@/shared/model/auth";
 import { EmptyState, FilePreviewDialog, FileTile, PageHeader, QueryState, useConfirm, useToast } from "@/shared/ui";
 import { FolderDialog } from "./FolderDialog";
-import { selectFolder, selectSearch, selectSelectedFolder, setSearch } from "./knowledgeSlice";
+import { selectFolder, selectSearch, selectSelectedFolder, setSearch } from "@/features/knowledge/model/knowledgeSlice";
 import { MaterialDialog } from "./MaterialDialog";
 
 /**
  * Библиотека базы знаний: папки слева, материалы справа.
  * library — "video" | "documentation" (ключ переводов и состояния), folderType — тип папок на бэкенде.
  */
-export function LibraryPage({ library, folderType, accept }) {
+export function LibraryView({ library, folderType, accept }) {
   const { t } = useTranslation("knowledge");
   const dispatch = useDispatch();
   const isAdmin = useSelector(selectIsAdmin);
