@@ -22,7 +22,7 @@ import {
  *   <feature>  — слайсы фич: каждый файл src/features/<feature>/model/*Slice.js
  *                с `export default slice` подключается сюда автоматически
  */
-const featureSlices = Object.values(import.meta.glob(["../features/*/*Slice.js", "../features/*/model/*Slice.js"], { eager: true, import: "default" }));
+const featureSlices = Object.values(import.meta.glob("../features/*/model/*Slice.js", { eager: true, import: "default" }));
 
 export const rootReducer = combineSlices(baseApi, authSlice, settingsSlice, ...featureSlices);
 
