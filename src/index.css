@@ -1,0 +1,93 @@
+/* Порядок слоёв: стили MUI (слой mui) ниже утилит Tailwind — утилиты всегда могут их перекрыть */
+@layer theme, base, mui, components, utilities;
+@import "tailwindcss";
+
+/* Тёмная тема включается атрибутом data-theme="dark" на <html> */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/*
+ * Дизайн-токены Активбанка.
+ * Все цвета интерфейса берутся отсюда — чтобы перекрасить сервис,
+ * достаточно поменять значения в этом блоке.
+ */
+@theme {
+  --font-sans: "Manrope Variable", "Manrope", ui-sans-serif, system-ui, sans-serif;
+
+  /* Фирменный красный — цвет логотипа Активбанка (#e31e24) */
+  --color-brand-50: #fef2f2;
+  --color-brand-100: #fee2e2;
+  --color-brand-200: #fecaca;
+  --color-brand-300: #fca5a5;
+  --color-brand-400: #f2646a;
+  --color-brand-500: #ea3a40;
+  --color-brand-600: #e31e24;
+  --color-brand-700: #bf161c;
+  --color-brand-800: #9d171c;
+  --color-brand-900: #82191d;
+  --color-brand-950: #470709;
+
+  /* Графит — текст, тёмные поверхности */
+  --color-ink-50: #f6f7f9;
+  --color-ink-100: #eceef2;
+  --color-ink-200: #d5d9e1;
+  --color-ink-300: #b0b7c5;
+  --color-ink-400: #8590a5;
+  --color-ink-500: #66718a;
+  --color-ink-600: #515b71;
+  --color-ink-700: #424a5c;
+  --color-ink-800: #2b303c;
+  --color-ink-900: #1c2029;
+  --color-ink-950: #12151b;
+
+  /* Статусы */
+  --color-success: #16a34a;
+  --color-warning: #d97706;
+  --color-info: #2563eb;
+
+  --radius-card: 1.25rem;
+  --shadow-card: 0 1px 2px rgb(18 21 27 / 0.04), 0 4px 16px rgb(18 21 27 / 0.04);
+}
+
+/* Семантические токены поверхностей — меняются вместе с темой */
+:root {
+  --surface-bg: var(--color-ink-50);
+  --surface-card: #ffffff;
+  --surface-muted: var(--color-ink-100);
+  --surface-border: var(--color-ink-200);
+  --text-primary: var(--color-ink-900);
+  --text-secondary: var(--color-ink-500);
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  --surface-bg: var(--color-ink-950);
+  --surface-card: var(--color-ink-900);
+  --surface-muted: var(--color-ink-800);
+  --surface-border: var(--color-ink-800);
+  --text-primary: var(--color-ink-50);
+  --text-secondary: var(--color-ink-400);
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-bg: var(--surface-bg);
+  --color-card: var(--surface-card);
+  --color-muted: var(--surface-muted);
+  --color-line: var(--surface-border);
+  --color-fg: var(--text-primary);
+  --color-fg-muted: var(--text-secondary);
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+  }
+  body {
+    @apply bg-bg text-fg font-sans;
+    /* Сервис рассчитан только на десктоп: на узких экранах страница прокручивается по горизонтали */
+    min-width: 1280px;
+  }
+  ::selection {
+    @apply bg-brand-200 text-brand-900;
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "title": "История стажёров",
+  "subtitle": "Стажёры и результаты их попыток по одноразовым ссылкам",
+  "search": "Поиск по ФИО или телефону",
+  "allBranches": "Все филиалы",
+  "empty": "Стажёров пока нет",
+  "intern": "Стажёр",
+  "attempt": "Попытка",
+  "attemptsSubtitle": "Попытки прохождения тестов",
+  "answersSubtitle": "Ответы стажёра",
+  "inSystemSince": "В системе с",
+  "allAttempts": "Все попытки",
+  "noAttempts": "Попыток нет",
+  "timeUp": "Время вышло",
+  "sourceUnavailable": "Источник тестов недоступен: тексты вопросов и правильные ответы не показаны",
+  "questionNumber": "Вопрос #{{id}}",
+  "answer": "Ответ",
+  "correct": "Правильный ответ",
+  "columns": {
+    "name": "ФИО",
+    "phone": "Телефон",
+    "branch": "Филиал",
+    "attempts": "Попыток",
+    "status": "Статус",
+    "updated": "Обновлён",
+    "test": "Тест",
+    "score": "Баллы",
+    "submitted": "Отправлено"
+  },
+  "status": {
+    "graded": "Проверено",
+    "needsGrading": "Ждёт проверки",
+    "gradedPlural": "Проверенные",
+    "needsGradingPlural": "Ждут проверки"
+  },
+  "score": {
+    "right": "Верно",
+    "wrong": "Неверно",
+    "pending": "Не проверен"
+  },
+  "gradedBy": {
+    "auto": "Оценено автоматически",
+    "manual": "Оценено вручную"
+  }
+}
