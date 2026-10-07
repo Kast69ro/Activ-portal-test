@@ -19,8 +19,8 @@ import {
 } from "@/entities/testing/testingApi";
 import { getErrorMessage } from "@/shared/api/normalize";
 import { EmptyState, PageHeader, QueryState, useConfirm, useToast } from "@/shared/ui";
-import { QuestionForm } from "../components/QuestionForm";
-import { QuestionTypeChip } from "../components/QuestionTypeChip";
+import { QuestionForm } from "@/features/testing/components/QuestionForm";
+import { QuestionTypeChip } from "@/features/testing/components/QuestionTypeChip";
 
 /** Банк вопросов (страница /question) */
 export default function QuestionsPage() {

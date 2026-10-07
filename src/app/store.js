@@ -19,10 +19,10 @@ import {
  *   api        — кэш всех запросов (RTK Query). Эндпоинты — в src/entities/* и src/features/*\/<feature>Api.js
  *   auth       — сессия: токен, пользователь, роли (src/shared/model/auth.js)
  *   settings   — тема, язык, свёрнутое меню (src/shared/model/settings.js)
- *   <feature>  — слайсы фич: каждый файл src/features/<feature>/<feature>Slice.js
+ *   <feature>  — слайсы фич: каждый файл src/features/<feature>/model/*Slice.js
  *                с `export default slice` подключается сюда автоматически
  */
-const featureSlices = Object.values(import.meta.glob("../features/*/*Slice.js", { eager: true, import: "default" }));
+const featureSlices = Object.values(import.meta.glob(["../features/*/*Slice.js", "../features/*/model/*Slice.js"], { eager: true, import: "default" }));
 
 export const rootReducer = combineSlices(baseApi, authSlice, settingsSlice, ...featureSlices);
 

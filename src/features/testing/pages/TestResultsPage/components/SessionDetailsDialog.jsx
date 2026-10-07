@@ -20,7 +20,7 @@ import {
   testTitle,
 } from "@/entities/testing/model";
 import { formatDateTime } from "@/shared/lib/format";
-import { formatSessionDuration } from "../sessionFormat";
+import { formatSessionDuration } from "@/features/testing/model/sessionFormat";
 
 /** Детали сессии прохождения: сведения и ответы */
 export function SessionDetailsDialog({ session, test, employee, departments, onClose }) {

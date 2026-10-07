@@ -12,12 +12,12 @@ import { useDeleteTestMutation, useGetTestsQuery } from "@/entities/testing/test
 import { getErrorMessage } from "@/shared/api/normalize";
 import { selectIsAdmin } from "@/shared/model/auth";
 import { EmptyState, PageHeader, QueryState, useConfirm, useToast } from "@/shared/ui";
-import { EditorDialog } from "../components/EditorDialog";
-import { PreviewDialog } from "../components/PreviewDialog";
-import { StartDialog } from "../components/StartDialog";
-import { SurveyTakingDialog } from "../components/SurveyTakingDialog";
-import { TestCard } from "../components/TestCard";
-import { selectSurveysPage, setSurveysPage } from "../testingSlice";
+import { EditorDialog } from "@/features/testing/components/EditorDialog";
+import { PreviewDialog } from "@/features/testing/components/PreviewDialog";
+import { StartDialog } from "@/features/testing/components/StartDialog";
+import { SurveyTakingDialog } from "./components/SurveyTakingDialog";
+import { TestCard } from "@/features/testing/components/TestCard";
+import { selectSurveysPage, setSurveysPage } from "@/features/testing/model/testingSlice";
 
 const PAGE_SIZE = 9;
 

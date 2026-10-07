@@ -14,7 +14,7 @@ export default [
     section: "testing",
     order: 10,
     titleKey: "tests.title",
-    page: lazy(() => import("./pages/TestsPage")),
+    page: lazy(() => import("./pages/TestsPage/TestsPage")),
   },
   {
     id: "surveys",
@@ -23,7 +23,7 @@ export default [
     section: "testing",
     order: 20,
     titleKey: "surveys.title",
-    page: lazy(() => import("./pages/SurveysPage")),
+    page: lazy(() => import("./pages/SurveysPage/SurveysPage")),
   },
   {
     id: "test-results",
@@ -33,7 +33,7 @@ export default [
     order: 30,
     roles: ["admin"],
     titleKey: "results.title",
-    page: lazy(() => import("./pages/TestResultsPage")),
+    page: lazy(() => import("./pages/TestResultsPage/TestResultsPage")),
   },
   {
     id: "survey-results",
@@ -43,7 +43,7 @@ export default [
     order: 40,
     roles: ["admin"],
     titleKey: "surveyResults.title",
-    page: lazy(() => import("./pages/SurveyResultsPage")),
+    page: lazy(() => import("./pages/SurveyResultsPage/SurveyResultsPage")),
   },
   {
     // Прохождение теста — на весь экран, без меню
@@ -52,7 +52,7 @@ export default [
     section: null,
     layout: "blank",
     titleKey: "run.title",
-    page: lazy(() => import("./pages/TestRunPage")),
+    page: lazy(() => import("./pages/TestRunPage/TestRunPage")),
   },
   {
     // Банк вопросов и ручной ввод ответов: в меню не выводятся, как и в прежней системе
@@ -62,7 +62,7 @@ export default [
     section: null,
     roles: ["admin"],
     titleKey: "questions.title",
-    page: lazy(() => import("./pages/QuestionsPage")),
+    page: lazy(() => import("./pages/QuestionsPage/QuestionsPage")),
   },
   {
     id: "answers",
@@ -71,6 +71,6 @@ export default [
     section: null,
     roles: ["admin"],
     titleKey: "answers.title",
-    page: lazy(() => import("./pages/AnswersPage")),
+    page: lazy(() => import("./pages/AnswersPage/AnswersPage")),
   },
 ];

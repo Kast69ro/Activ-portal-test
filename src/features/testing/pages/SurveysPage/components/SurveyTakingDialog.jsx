@@ -13,9 +13,9 @@ import { QUESTION_TYPE, optionText, questionText, questionType, testTitle } from
 import { cn } from "@/shared/lib/cn";
 import { formatDuration } from "@/shared/lib/format";
 import { useToast } from "@/shared/ui";
-import { saveSurveyResult } from "../surveyResultsSlice";
-import { QuestionTypeChip } from "./QuestionTypeChip";
-import { RatingPicker } from "./RatingPicker";
+import { saveSurveyResult } from "@/features/testing/model/surveyResultsSlice";
+import { QuestionTypeChip } from "@/features/testing/components/QuestionTypeChip";
+import { RatingPicker } from "@/features/testing/components/RatingPicker";
 
 /**
  * Прохождение опроса на весь экран. run = { survey, employee, employeeName, duration } | null.

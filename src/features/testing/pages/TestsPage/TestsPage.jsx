@@ -16,13 +16,13 @@ import {
 import { getErrorMessage } from "@/shared/api/normalize";
 import { selectIsAdmin } from "@/shared/model/auth";
 import { EmptyState, PageHeader, QueryState, useConfirm, useToast } from "@/shared/ui";
-import { EditorDialog } from "../components/EditorDialog";
-import { LinkDialog } from "../components/LinkDialog";
-import { PreviewDialog } from "../components/PreviewDialog";
-import { StartDialog } from "../components/StartDialog";
-import { TestCard } from "../components/TestCard";
-import { runUrl } from "../runUrl";
-import { selectTestsPage, setTestsPage } from "../testingSlice";
+import { EditorDialog } from "@/features/testing/components/EditorDialog";
+import { LinkDialog } from "./components/LinkDialog";
+import { PreviewDialog } from "@/features/testing/components/PreviewDialog";
+import { StartDialog } from "@/features/testing/components/StartDialog";
+import { TestCard } from "@/features/testing/components/TestCard";
+import { runUrl } from "@/features/testing/model/runUrl";
+import { selectTestsPage, setTestsPage } from "@/features/testing/model/testingSlice";
 
 const PAGE_SIZE = 9;
 

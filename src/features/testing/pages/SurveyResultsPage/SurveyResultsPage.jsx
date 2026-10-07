@@ -22,8 +22,8 @@ import Tooltip from "@mui/material/Tooltip";
 import { QUESTION_TYPE, correctAnswer, optionText, questionText, questionType } from "@/entities/testing/model";
 import { formatDateTime, formatDuration } from "@/shared/lib/format";
 import { EmptyState, PageHeader, StatCard, useConfirm, useToast } from "@/shared/ui";
-import { exportWorkbook } from "../excel";
-import { MAX_SURVEY_ATTEMPTS, selectSurveyResults } from "../surveyResultsSlice";
+import { exportWorkbook } from "@/features/testing/model/excel";
+import { MAX_SURVEY_ATTEMPTS, selectSurveyResults } from "@/features/testing/model/surveyResultsSlice";
 
 const percentOf = (r) => (r.totalQuestions ? Math.round(((r.answers?.length ?? 0) / r.totalQuestions) * 100) : 0);
 const findQuestion = (r, id) => r.questions?.find((q) => String(q.id) === String(id));

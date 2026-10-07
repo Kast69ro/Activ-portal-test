@@ -16,7 +16,7 @@ import { useGenerateTestLinkMutation } from "@/entities/interns/internsApi";
 import { testTitle } from "@/entities/testing/model";
 import { getErrorMessage } from "@/shared/api/normalize";
 import { useToast } from "@/shared/ui";
-import { MAX_DURATION, PRESET_DURATIONS } from "../constants";
+import { MAX_DURATION, PRESET_DURATIONS } from "@/features/testing/model/constants";
 
 /** Одноразовая ссылка на тест для стажёра (сервис стажёров) */
 export function LinkDialog({ test, onClose }) {

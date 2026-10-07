@@ -27,8 +27,8 @@ import { getErrorMessage } from "@/shared/api/normalize";
 import { cn } from "@/shared/lib/cn";
 import { formatDuration } from "@/shared/lib/format";
 import { Loader, LogoMark, useConfirm, useToast } from "@/shared/ui";
-import { QuestionTypeChip } from "../components/QuestionTypeChip";
-import { RatingPicker } from "../components/RatingPicker";
+import { QuestionTypeChip } from "@/features/testing/components/QuestionTypeChip";
+import { RatingPicker } from "@/features/testing/components/RatingPicker";
 
 /** Момент старта сессии хранится в sessionStorage — после обновления вкладки время не начинается заново */
 const startKey = (id) => `test-run-start-${id}`;

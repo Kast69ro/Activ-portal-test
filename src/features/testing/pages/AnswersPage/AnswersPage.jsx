@@ -27,7 +27,7 @@ import {
 } from "@/entities/testing/testingApi";
 import { getErrorMessage } from "@/shared/api/normalize";
 import { EmptyState, PageHeader, QueryState, useConfirm, useToast } from "@/shared/ui";
-import { QuestionTypeChip } from "../components/QuestionTypeChip";
+import { QuestionTypeChip } from "@/features/testing/components/QuestionTypeChip";
 
 const EMPTY = { testId: "", questionId: "", employeeId: null, optionId: "", textAnswer: "" };
 

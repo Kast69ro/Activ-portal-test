@@ -44,12 +44,12 @@ import {
 import { useGetSessionsQuery, useGetTestsQuery } from "@/entities/testing/testingApi";
 import { formatDateTime } from "@/shared/lib/format";
 import { EmptyState, PageHeader, QueryState, StatCard, useToast } from "@/shared/ui";
-import { SessionDetailsDialog } from "../components/SessionDetailsDialog";
-import { RETAKE_DURATION } from "../constants";
-import { exportWorkbook } from "../excel";
-import { runUrl } from "../runUrl";
-import { formatSessionDuration } from "../sessionFormat";
-import { selectShowRanking, toggleRanking } from "../testingSlice";
+import { SessionDetailsDialog } from "./components/SessionDetailsDialog";
+import { RETAKE_DURATION } from "@/features/testing/model/constants";
+import { exportWorkbook } from "@/features/testing/model/excel";
+import { runUrl } from "@/features/testing/model/runUrl";
+import { formatSessionDuration } from "@/features/testing/model/sessionFormat";
+import { selectShowRanking, toggleRanking } from "@/features/testing/model/testingSlice";
 
 const RANK_COLORS = ["text-amber-400", "text-slate-400", "text-orange-700"];
 
