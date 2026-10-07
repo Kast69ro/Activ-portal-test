@@ -8,7 +8,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 import TextField from "@mui/material/TextField";
 import { getErrorMessage } from "@/shared/api/normalize";
 import { useToast } from "@/shared/ui";
-import { useCreateChatMutation } from "../chatApi";
+import { useCreateChatMutation } from "@/features/chat/api";
 import { UserPicker } from "./UserPicker";
 
 const MIN_MEMBERS = 2;

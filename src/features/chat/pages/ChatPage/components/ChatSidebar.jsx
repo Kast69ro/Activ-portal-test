@@ -17,9 +17,9 @@ import { formatRelativeDay } from "@/shared/lib/format";
 import { useDebounce } from "@/shared/lib/useDebounce";
 import { selectLogin } from "@/shared/model/auth";
 import { useToast } from "@/shared/ui";
-import { useCreateChatMutation, useGetChatsQuery, useMarkReadMutation, useSearchUsersQuery } from "../chatApi";
-import { openChat, selectActiveChatId, selectChatType, selectOnlineUserIds, setChatType } from "../chatSlice";
-import { avatarSrc, getPeer, initialOf, messagePreview } from "../utils";
+import { useCreateChatMutation, useGetChatsQuery, useMarkReadMutation, useSearchUsersQuery } from "@/features/chat/api";
+import { openChat, selectActiveChatId, selectChatType, selectOnlineUserIds, setChatType } from "@/features/chat/model/chatSlice";
+import { avatarSrc, getPeer, initialOf, messagePreview } from "@/features/chat/model/utils";
 import { CreateGroupDialog } from "./CreateGroupDialog";
 import { UserHeader } from "./UserHeader";
 

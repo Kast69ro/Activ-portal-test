@@ -13,5 +13,5 @@ export default {
   section: "communication",
   order: 10,
   titleKey: "menu",
-  page: lazy(() => import("./ChatPage")),
+  page: lazy(() => import("./pages/ChatPage/ChatPage")),
 };

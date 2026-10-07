@@ -38,10 +38,10 @@ import {
   useSendFileMutation,
   useSendMessageMutation,
   useUpdateChatMutation,
-} from "../chatApi";
-import { openChat, selectActiveChatId, selectChatType, selectOnlineUserIds, selectTypingIds } from "../chatSlice";
-import { sendSocket } from "../socket";
-import { avatarSrc, getPeer, groupByDay, initialOf } from "../utils";
+} from "@/features/chat/api";
+import { openChat, selectActiveChatId, selectChatType, selectOnlineUserIds, selectTypingIds } from "@/features/chat/model/chatSlice";
+import { sendSocket } from "@/features/chat/model/socket";
+import { avatarSrc, getPeer, groupByDay, initialOf } from "@/features/chat/model/utils";
 import { EmojiPicker } from "./EmojiPicker";
 import { MembersDialog } from "./MembersDialog";
 import { MessageItem } from "./MessageItem";

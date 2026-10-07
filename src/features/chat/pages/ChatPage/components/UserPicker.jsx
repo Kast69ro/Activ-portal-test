@@ -10,8 +10,8 @@ import TextField from "@mui/material/TextField";
 import { cn } from "@/shared/lib/cn";
 import { useDebounce } from "@/shared/lib/useDebounce";
 import { selectLogin } from "@/shared/model/auth";
-import { useSearchUsersQuery } from "../chatApi";
-import { avatarSrc, initialOf } from "../utils";
+import { useSearchUsersQuery } from "@/features/chat/api";
+import { avatarSrc, initialOf } from "@/features/chat/model/utils";
 
 /** Поиск и множественный выбор сотрудников для группы. exclude — логины, которых не показывать */
 export function UserPicker({ selected, onChange, exclude = [] }) {

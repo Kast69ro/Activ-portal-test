@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector, useStore } from "react-redux";
 import { selectLogin } from "@/shared/model/auth";
 import { useToast } from "@/shared/ui";
-import { chatApi, patchChats, patchMessages } from "./chatApi";
+import { chatApi, patchChats, patchMessages } from "@/features/chat/api";
 import { selectActiveChatId, setOnlineUsers, setTyping } from "./chatSlice";
 import { closeChatSocket, openChatSocket } from "./socket";
 

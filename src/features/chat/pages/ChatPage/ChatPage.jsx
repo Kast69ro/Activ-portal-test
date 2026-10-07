@@ -1,8 +1,8 @@
 import Card from "@mui/material/Card";
-import { useGetMeQuery } from "./chatApi";
+import { useGetMeQuery } from "@/features/chat/api";
 import { ChatSidebar } from "./components/ChatSidebar";
 import { ChatThread } from "./components/ChatThread";
-import { useChatSocket } from "./useChatSocket";
+import { useChatSocket } from "@/features/chat/model/useChatSocket";
 
 export default function ChatPage() {
   const { data: me } = useGetMeQuery();

@@ -7,9 +7,9 @@ import CircularProgress from "@mui/material/CircularProgress";
 import Tooltip from "@mui/material/Tooltip";
 import { selectLogin } from "@/shared/model/auth";
 import { useToast } from "@/shared/ui";
-import { useUploadAvatarMutation } from "../chatApi";
-import { selectOnlineUserIds } from "../chatSlice";
-import { avatarSrc, initialOf } from "../utils";
+import { useUploadAvatarMutation } from "@/features/chat/api";
+import { selectOnlineUserIds } from "@/features/chat/model/chatSlice";
+import { avatarSrc, initialOf } from "@/features/chat/model/utils";
 
 const MAX_SIZE_MB = 5;
 

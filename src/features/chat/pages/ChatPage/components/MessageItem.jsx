@@ -18,10 +18,10 @@ import {
   useDeleteMessageMutation,
   useRemoveReactionMutation,
   useUpdateMessageMutation,
-} from "../chatApi";
+} from "@/features/chat/api";
 import { EmojiPicker } from "./EmojiPicker";
-import { downloadChatFile } from "../files";
-import { QUICK_REACTIONS } from "../utils";
+import { downloadChatFile } from "@/features/chat/model/files";
+import { QUICK_REACTIONS } from "@/features/chat/model/utils";
 import { FileAttachment } from "./FileAttachment";
 
 export function MessageItem({ msg, chatId, me, isMine, onPreview }) {

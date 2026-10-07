@@ -23,8 +23,8 @@ import {
   useGetMembersQuery,
   useRemoveMemberMutation,
   useUpdateMemberRoleMutation,
-} from "../chatApi";
-import { avatarSrc, initialOf } from "../utils";
+} from "@/features/chat/api";
+import { avatarSrc, initialOf } from "@/features/chat/model/utils";
 import { UserPicker } from "./UserPicker";
 
 const ROLE_COLOR = { owner: "primary", admin: "info", member: "default" };
