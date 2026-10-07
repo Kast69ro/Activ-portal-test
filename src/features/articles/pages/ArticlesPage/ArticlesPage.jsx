@@ -8,15 +8,15 @@ import TextField from "@mui/material/TextField";
 import { getErrorMessage } from "@/shared/api/normalize";
 import { useDebounce } from "@/shared/lib/useDebounce";
 import { EmptyState, PageHeader, QueryState, useConfirm, useToast } from "@/shared/ui";
-import { ArticleCard } from "./ArticleCard";
-import { ArticleDialog } from "./ArticleDialog";
-import { toArticleForm } from "./articleForm";
+import { ArticleCard } from "@/features/articles/components/ArticleCard";
+import { ArticleDialog } from "@/features/articles/components/ArticleDialog";
+import { toArticleForm } from "@/features/articles/model/articleForm";
 import {
   useCreateArticleMutation,
   useDeleteArticleMutation,
   useGetArticlesQuery,
   useUpdateArticleMutation,
-} from "./articlesApi";
+} from "@/features/articles/api";
 
 export default function ArticlesPage() {
   const { t } = useTranslation("articles");

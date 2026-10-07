@@ -20,7 +20,7 @@ import {
   useGetArticleQuery,
   useGetCommentsQuery,
   useUpdateCommentMutation,
-} from "./articlesApi";
+} from "@/features/articles/api";
 
 export default function ArticlePage() {
   const { t } = useTranslation("articles");

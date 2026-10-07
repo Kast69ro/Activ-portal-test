@@ -5,16 +5,16 @@ import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import { getErrorMessage } from "@/shared/api/normalize";
 import { EmptyState, PageHeader, QueryState, useConfirm, useToast } from "@/shared/ui";
-import { ArticleCard } from "./ArticleCard";
-import { ArticleDialog } from "./ArticleDialog";
-import { toArticleForm } from "./articleForm";
+import { ArticleCard } from "@/features/articles/components/ArticleCard";
+import { ArticleDialog } from "@/features/articles/components/ArticleDialog";
+import { toArticleForm } from "@/features/articles/model/articleForm";
 import {
   useCreateArticleMutation,
   useDeleteMyArticleMutation,
   useGetMyProfileQuery,
   useUpdateMyArticleFilesMutation,
   useUpdateMyArticleMutation,
-} from "./articlesApi";
+} from "@/features/articles/api";
 
 /** Статьи текущего пользователя (/api/me) */
 export default function MyArticlesPage() {

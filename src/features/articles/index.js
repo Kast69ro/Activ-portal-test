@@ -12,8 +12,8 @@ export default [
     icon: Newspaper,
     section: null,
     order: 20,
-    page: lazy(() => import("./ArticlesPage")),
-    children: [{ path: ":id", page: lazy(() => import("./ArticlePage")) }],
+    page: lazy(() => import("./pages/ArticlesPage/ArticlesPage")),
+    children: [{ path: ":id", page: lazy(() => import("./pages/ArticlePage/ArticlePage")) }],
   },
   {
     id: "my-articles",
@@ -22,6 +22,6 @@ export default [
     section: null,
     order: 30,
     titleKey: "mine.title",
-    page: lazy(() => import("./MyArticlesPage")),
+    page: lazy(() => import("./pages/MyArticlesPage/MyArticlesPage")),
   },
 ];
