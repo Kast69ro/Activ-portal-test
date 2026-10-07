@@ -6,8 +6,8 @@ import {
   useGetDepartmentsQuery,
   useUpdateDepartmentMutation,
 } from "@/entities/org/orgApi";
-import { DirectoryPage } from "./DirectoryPage";
-import { selectPage, setPage } from "./orgSlice";
+import { DirectoryTable } from "@/features/org/components/DirectoryTable";
+import { selectPage, setPage } from "@/features/org/model/orgSlice";
 
 export default function DepartmentsPage() {
   const { t } = useTranslation("org");
@@ -18,7 +18,7 @@ export default function DepartmentsPage() {
   const [remove] = useDeleteDepartmentMutation();
 
   return (
-    <DirectoryPage
+    <DirectoryTable
       page={page}
       onPageChange={(p) => dispatch(setPage({ key: "departments", page: p }))}
       config={{

@@ -35,7 +35,7 @@ import {
 } from "@/entities/org/orgApi";
 import { getErrorMessage } from "@/shared/api/normalize";
 import { EmptyState, PageHeader, QueryState, useConfirm, useToast } from "@/shared/ui";
-import { selectEmployeeSearch, selectPage, setEmployeeSearch, setPage } from "./orgSlice";
+import { selectEmployeeSearch, selectPage, setEmployeeSearch, setPage } from "@/features/org/model/orgSlice";
 
 const EMPTY_FORM = {
   firstName: "",

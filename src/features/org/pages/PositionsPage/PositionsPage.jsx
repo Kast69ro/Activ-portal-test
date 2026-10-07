@@ -6,8 +6,8 @@ import {
   useGetPositionsQuery,
   useUpdatePositionMutation,
 } from "@/entities/org/orgApi";
-import { DirectoryPage } from "./DirectoryPage";
-import { selectPage, setPage } from "./orgSlice";
+import { DirectoryTable } from "@/features/org/components/DirectoryTable";
+import { selectPage, setPage } from "@/features/org/model/orgSlice";
 
 export default function PositionsPage() {
   const { t } = useTranslation("org");
@@ -18,7 +18,7 @@ export default function PositionsPage() {
   const [remove] = useDeletePositionMutation();
 
   return (
-    <DirectoryPage
+    <DirectoryTable
       page={page}
       onPageChange={(p) => dispatch(setPage({ key: "positions", page: p }))}
       config={{

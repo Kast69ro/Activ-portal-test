@@ -33,7 +33,7 @@ import { EmptyState, PageHeader, QueryState, useConfirm, useToast } from "@/shar
  *   toForm(item) → values, toPayload(values, item) → body
  * }
  */
-export function DirectoryPage({ config, page, onPageChange }) {
+export function DirectoryTable({ config, page, onPageChange }) {
   const { t } = useTranslation("org");
   const toast = useToast();
   const confirm = useConfirm();

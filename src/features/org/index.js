@@ -12,7 +12,7 @@ export default [
     icon: Building2,
     order: 10,
     titleKey: "departments.title",
-    page: lazy(() => import("./DepartmentsPage")),
+    page: lazy(() => import("./pages/DepartmentsPage/DepartmentsPage")),
   },
   {
     ...admin,
@@ -21,7 +21,7 @@ export default [
     icon: Network,
     order: 20,
     titleKey: "subdepartments.title",
-    page: lazy(() => import("./SubDepartmentsPage")),
+    page: lazy(() => import("./pages/SubDepartmentsPage/SubDepartmentsPage")),
   },
   {
     ...admin,
@@ -30,7 +30,7 @@ export default [
     icon: IdCard,
     order: 30,
     titleKey: "positions.title",
-    page: lazy(() => import("./PositionsPage")),
+    page: lazy(() => import("./pages/PositionsPage/PositionsPage")),
   },
   {
     ...admin,
@@ -39,6 +39,6 @@ export default [
     icon: Users,
     order: 40,
     titleKey: "employees.title",
-    page: lazy(() => import("./EmployeesPage")),
+    page: lazy(() => import("./pages/EmployeesPage/EmployeesPage")),
   },
 ];
