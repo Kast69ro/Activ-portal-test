@@ -1,3 +1,7 @@
+/**
+ * API статей и комментариев (service: "articles"). Теги: Article, ArticleComments, MyArticles.
+ * Используется только доменом articles.
+ */
 import { baseApi } from "@/shared/api/baseApi";
 
 /**

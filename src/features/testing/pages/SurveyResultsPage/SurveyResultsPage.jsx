@@ -1,3 +1,7 @@
+/**
+ * Результаты опросов (из localStorage, см. surveyResultsSlice) с выгрузкой в Excel.
+ * Маршрут: /survey-results. Доступ: Admin.
+ */
 import { useMemo, useState } from "react";
 import { useNavigate } from "react-router";
 import { BarChart3, CheckCircle2, Eye, FileSpreadsheet, Hourglass, RotateCcw, Users } from "lucide-react";

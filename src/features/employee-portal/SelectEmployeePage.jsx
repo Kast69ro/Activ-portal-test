@@ -1,3 +1,7 @@
+/**
+ * Выбор профиля сотрудника для входа в кабинет.
+ * Маршрут: /select-employee (без меню). Доступ: все вошедшие.
+ */
 import { useMemo, useState } from "react";
 import { Link } from "react-router";
 import { ArrowRight, House, Search } from "lucide-react";

@@ -1,3 +1,6 @@
+/**
+ * Слайс org (подключается в store автоматически). Используют все страницы домена.
+ */
 import { createSlice } from "@reduxjs/toolkit";
 
 const DEFAULT_PAGE = { pageNumber: 1, pageSize: 10 };

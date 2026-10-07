@@ -1,3 +1,7 @@
+/**
+ * Статьи текущего пользователя: редактирование и удаление.
+ * Маршрут: /my-articles (в меню скрыт). Доступ: все вошедшие.
+ */
 import { useState } from "react";
 import { Plus } from "lucide-react";
 import { useTranslation } from "react-i18next";

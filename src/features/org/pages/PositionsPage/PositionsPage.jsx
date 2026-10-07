@@ -1,3 +1,6 @@
+/**
+ * Справочник должностей (на DirectoryTable). Маршрут: /position. Доступ: Admin.
+ */
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import {

@@ -1,3 +1,6 @@
+/**
+ * Слайс auth: токен, пользователь и роли; селекторы и проверка ролей (hasAnyRole).
+ */
 import { createSlice } from "@reduxjs/toolkit";
 
 /*

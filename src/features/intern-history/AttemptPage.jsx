@@ -1,3 +1,6 @@
+/**
+ * Маршрут: /test-history/attempt/:attemptId. Доступ: Admin.
+ */
 import { useLocation, useNavigate, useParams } from "react-router";
 import { useTranslation } from "react-i18next";
 import Alert from "@mui/material/Alert";

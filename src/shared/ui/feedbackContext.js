@@ -1,3 +1,6 @@
+/**
+ * Контексты и хуки тостов и подтверждения; вынесены из feedback.jsx ради Fast Refresh.
+ */
 import { createContext, useContext } from "react";
 
 export const ToastContext = createContext(null);

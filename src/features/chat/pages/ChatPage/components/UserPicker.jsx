@@ -1,3 +1,6 @@
+/**
+ * Выбор сотрудников. Используют CreateGroupDialog и MembersDialog.
+ */
 import { useState } from "react";
 import { Check, Search } from "lucide-react";
 import { useTranslation } from "react-i18next";

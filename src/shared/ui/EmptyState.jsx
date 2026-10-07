@@ -1,3 +1,6 @@
+/**
+ * Заглушка «пусто»: иконка, заголовок, описание и действие. Используется во всех доменах и в QueryState.
+ */
 import { Inbox } from "lucide-react";
 
 export function EmptyState({ icon: Icon = Inbox, title, description, action }) {

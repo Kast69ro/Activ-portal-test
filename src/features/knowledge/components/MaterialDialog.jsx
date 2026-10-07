@@ -1,3 +1,6 @@
+/**
+ * Используется в LibraryView (то есть на обеих страницах домена).
+ */
 import { useEffect, useRef, useState } from "react";
 import { Paperclip, X } from "lucide-react";
 import { useTranslation } from "react-i18next";

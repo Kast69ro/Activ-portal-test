@@ -1,3 +1,6 @@
+/**
+ * Используют TestsPage и SurveysPage.
+ */
 import { useTranslation } from "react-i18next";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";

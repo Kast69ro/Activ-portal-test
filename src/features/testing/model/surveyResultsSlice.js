@@ -1,3 +1,6 @@
+/**
+ * Слайс surveyResults (подключается в store автоматически). Используют SurveyResultsPage и SurveyTakingDialog.
+ */
 import { createSlice } from "@reduxjs/toolkit";
 
 /*

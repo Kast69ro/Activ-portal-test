@@ -1,3 +1,6 @@
+/**
+ * Используют QuestionForm, TestRunPage и SurveyTakingDialog.
+ */
 import { cn } from "@/shared/lib/cn";
 
 /** Выбор оценки от 1 до 10 */

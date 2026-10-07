@@ -1,3 +1,7 @@
+/**
+ * Кабинет сотрудника: его материалы базы знаний и избранное.
+ * Маршрут: /employee/:id/dashboard (без меню). Доступ: все вошедшие.
+ */
 import { useState } from "react";
 import { Link, useParams } from "react-router";
 import { ArrowLeft, CalendarDays, Heart } from "lucide-react";

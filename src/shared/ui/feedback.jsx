@@ -1,3 +1,7 @@
+/**
+ * FeedbackProvider: тосты (Snackbar) и диалог подтверждения. Подключается один раз в App.jsx;
+ * в компонентах — через хуки useToast / useConfirm.
+ */
 import { useCallback, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import Alert from "@mui/material/Alert";

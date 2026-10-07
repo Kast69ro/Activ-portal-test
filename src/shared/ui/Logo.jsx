@@ -1,3 +1,6 @@
+/**
+ * Логотип Активбанка: знак (LogoMark) и полный логотип с названием (Logo, в боковом меню).
+ */
 import { useTranslation } from "react-i18next";
 import { cn } from "@/shared/lib/cn";
 

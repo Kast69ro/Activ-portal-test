@@ -1,3 +1,6 @@
+/**
+ * Переписка открытого чата: сообщения, ввод, вложения, управление группой. Используется в ChatPage.
+ */
 import { useEffect, useMemo, useRef, useState } from "react";
 import {
   FileText,

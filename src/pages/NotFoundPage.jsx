@@ -1,3 +1,6 @@
+/**
+ * Страница «404 — не найдено» для неизвестных адресов (src/app/router.jsx).
+ */
 import { Link } from "react-router";
 import { useTranslation } from "react-i18next";
 import Button from "@mui/material/Button";

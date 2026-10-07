@@ -1,3 +1,6 @@
+/**
+ * Используют TestsPage и SurveysPage.
+ */
 import { useEffect, useMemo, useState } from "react";
 import { Clock, Play } from "lucide-react";
 import { useTranslation } from "react-i18next";

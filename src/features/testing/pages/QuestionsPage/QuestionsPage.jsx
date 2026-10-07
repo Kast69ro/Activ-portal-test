@@ -1,3 +1,6 @@
+/**
+ * Маршрут: /question (в меню скрыт). Доступ: Admin.
+ */
 import { useState } from "react";
 import { Link } from "react-router";
 import { ClipboardCheck, Eye, EyeOff, Pencil, Plus, Trash2 } from "lucide-react";

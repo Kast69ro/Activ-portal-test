@@ -1,3 +1,7 @@
+/**
+ * Redux store: кэш RTK Query, сессия, настройки и слайсы фич (подключаются автоматически
+ * из src/features/*\/model/*Slice.js). Здесь же — сохранение настроек и сессии в localStorage.
+ */
 import { combineSlices, configureStore, createListenerMiddleware, isAnyOf } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query";
 import { baseApi, bindStore } from "@/shared/api/baseApi";

@@ -1,3 +1,6 @@
+/**
+ * Хук отложенного значения — для поиска при вводе (articles, chat, intern-history).
+ */
 import { useEffect, useState } from "react";
 
 /** Значение, которое обновляется не чаще, чем раз в delay мс — для поиска при вводе */

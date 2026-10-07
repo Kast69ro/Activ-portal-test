@@ -1,3 +1,6 @@
+/**
+ * Каркас страниц входа и регистрации. Используют LoginPage и RegisterPage.
+ */
 import { useTranslation } from "react-i18next";
 import Card from "@mui/material/Card";
 import { LanguageSwitcher, LogoMark } from "@/shared/ui";

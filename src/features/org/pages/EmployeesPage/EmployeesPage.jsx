@@ -1,3 +1,7 @@
+/**
+ * Сотрудники: таблица с поиском, создание и редактирование.
+ * Маршрут: /employee. Доступ: Admin.
+ */
 import { useMemo, useState } from "react";
 import { Mail, Pencil, Phone, Plus, Search, Trash2 } from "lucide-react";
 import { useTranslation } from "react-i18next";

@@ -1,4 +1,7 @@
-// Общие компоненты поверх MUI. Базовые элементы (Button, TextField, Dialog, Table…) берите прямо из @mui/material.
+/**
+ * Публичный экспорт shared/ui. Общие компоненты поверх MUI.
+ * Базовые элементы (Button, TextField, Dialog, Table…) берите прямо из @mui/material.
+ */
 export { EmptyState } from "./EmptyState";
 export { FeedbackProvider } from "./feedback";
 export { useConfirm, useToast } from "./feedbackContext";

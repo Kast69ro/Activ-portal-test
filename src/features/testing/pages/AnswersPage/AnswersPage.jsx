@@ -1,3 +1,6 @@
+/**
+ * Маршрут: /reply (в меню скрыт). Доступ: Admin.
+ */
 import { useState } from "react";
 import { Plus, Trash2 } from "lucide-react";
 import { useTranslation } from "react-i18next";

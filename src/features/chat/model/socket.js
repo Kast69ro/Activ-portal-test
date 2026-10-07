@@ -1,3 +1,6 @@
+/**
+ * Низкоуровневое WebSocket-соединение чата. Используют useChatSocket и ChatThread (отправка сообщений и «печатает…»).
+ */
 import { CHAT_WS_URL } from "@/config/env";
 
 /**

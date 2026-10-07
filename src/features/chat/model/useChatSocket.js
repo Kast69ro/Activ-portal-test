@@ -1,3 +1,6 @@
+/**
+ * Хук WebSocket чата: применяет события сервера к кэшу RTK Query и chatSlice. Используется в ChatPage.
+ */
 import { useEffect } from "react";
 import { useDispatch, useSelector, useStore } from "react-redux";
 import { selectLogin } from "@/shared/model/auth";

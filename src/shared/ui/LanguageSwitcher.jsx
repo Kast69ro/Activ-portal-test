@@ -1,3 +1,6 @@
+/**
+ * Переключатель языка интерфейса (RU / TJ). Используется в шапке и на страницах входа.
+ */
 import { useState } from "react";
 import { Check, ChevronDown, Globe } from "lucide-react";
 import { useTranslation } from "react-i18next";

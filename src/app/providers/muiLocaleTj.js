@@ -1,4 +1,4 @@
-/** Тексты компонентов MUI на таджикском — в MUI нет готовой локали tg-TJ */
+/** Тексты компонентов MUI на таджикском — в MUI нет готовой локали tg-TJ. Подключается в MuiProvider */
 export const tjTJ = {
   components: {
     MuiBreadcrumbs: { defaultProps: { expandText: "Нишон додани роҳ" } },

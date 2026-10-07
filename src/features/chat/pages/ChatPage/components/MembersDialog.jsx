@@ -1,3 +1,6 @@
+/**
+ * Диалог участников группы: роли, добавление, удаление. Используется в ChatThread.
+ */
 import { useState } from "react";
 import { ChevronDown, Crown, Trash2, UserPlus, X } from "lucide-react";
 import { useTranslation } from "react-i18next";

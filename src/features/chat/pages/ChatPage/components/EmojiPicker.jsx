@@ -1,3 +1,6 @@
+/**
+ * Ленивый пикер эмодзи в цвет темы. Используют ChatThread и MessageItem.
+ */
 import { Suspense, lazy } from "react";
 import { useSelector } from "react-redux";
 import CircularProgress from "@mui/material/CircularProgress";

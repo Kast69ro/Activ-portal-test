@@ -1,3 +1,6 @@
+/**
+ * Домен home: регистрация главной страницы /.
+ */
 import { lazy } from "react";
 import { House } from "lucide-react";
 

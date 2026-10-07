@@ -1,3 +1,6 @@
+/**
+ * Индикатор загрузки. Используется в роутере (Suspense), QueryState и на отдельных страницах.
+ */
 import CircularProgress from "@mui/material/CircularProgress";
 import { cn } from "@/shared/lib/cn";
 

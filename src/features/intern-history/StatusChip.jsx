@@ -1,3 +1,6 @@
+/**
+ * Чипы статуса попытки и оценки ответа. Используют все три страницы intern-history.
+ */
 import { useTranslation } from "react-i18next";
 import Chip from "@mui/material/Chip";
 

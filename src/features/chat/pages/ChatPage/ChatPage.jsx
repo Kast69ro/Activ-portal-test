@@ -1,3 +1,7 @@
+/**
+ * Страница чата: список чатов слева, переписка справа, WebSocket на время открытия.
+ * Маршрут: /chat. Доступ: все вошедшие.
+ */
 import Card from "@mui/material/Card";
 import { useGetMeQuery } from "@/features/chat/api";
 import { ChatSidebar } from "./components/ChatSidebar";

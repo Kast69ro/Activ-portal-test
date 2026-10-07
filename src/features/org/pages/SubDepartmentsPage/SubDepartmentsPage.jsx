@@ -1,3 +1,6 @@
+/**
+ * Справочник отделов с привязкой к управлению (на DirectoryTable). Маршрут: /subdepartment. Доступ: Admin.
+ */
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import Chip from "@mui/material/Chip";

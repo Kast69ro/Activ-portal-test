@@ -1,3 +1,6 @@
+/**
+ * Диалог папки базы знаний. Используется в LibraryView (то есть на обеих страницах домена).
+ */
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import Button from "@mui/material/Button";

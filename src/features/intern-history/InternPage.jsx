@@ -1,3 +1,6 @@
+/**
+ * Маршрут: /test-history/intern/:internId. Доступ: Admin.
+ */
 import { useState } from "react";
 import { useLocation, useNavigate, useParams } from "react-router";
 import { useTranslation } from "react-i18next";

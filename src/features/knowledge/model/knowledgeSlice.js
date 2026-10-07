@@ -1,3 +1,6 @@
+/**
+ * Слайс knowledge (подключается в store автоматически). Используется в LibraryView.
+ */
 import { createSlice } from "@reduxjs/toolkit";
 
 /** Выбранная папка и поиск — отдельно для видеоуроков и документации */

@@ -1,3 +1,7 @@
+/**
+ * Общий CRUD-справочник для DepartmentsPage, SubDepartmentsPage и PositionsPage
+ * (до рефакторинга — DirectoryPage.jsx).
+ */
 import { useState } from "react";
 import { Pencil, Plus, Trash2 } from "lucide-react";
 import { useTranslation } from "react-i18next";

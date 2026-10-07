@@ -1,10 +1,11 @@
-/*
+/**
  * Бэкенд HR-системы (.NET) отдаёт данные в разных обёртках:
  *   [...]                                   — голый массив
  *   { data: [...], totalRecords }           — постраничный ответ
  *   { data: {...} }                         — один объект
  *   { items: [...], totalCount } / { $values: [...] }
  * Эти функции приводят ответ к одному виду, чтобы страницы о форматах не думали.
+ * Используются в entities, features и shared/ui/QueryState.
  */
 
 const LIST_KEYS = ["data", "items", "records", "results", "$values"];

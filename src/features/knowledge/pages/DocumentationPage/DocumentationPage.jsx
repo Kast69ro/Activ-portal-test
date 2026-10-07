@@ -1,3 +1,7 @@
+/**
+ * Документация — LibraryView для папок типа DOCUMENTATION.
+ * Маршрут: /documentation. Доступ: все вошедшие (управление — Admin).
+ */
 import { FOLDER_TYPE } from "@/entities/knowledge/knowledgeApi";
 import { LibraryView } from "@/features/knowledge/components/LibraryView";
 

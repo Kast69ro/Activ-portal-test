@@ -1,3 +1,7 @@
+/**
+ * Обработчики моков основного API (in-memory база поверх mocks/data.js).
+ * Загружается из main.jsx только при VITE_USE_MOCKS=true.
+ */
 import { registerMocks } from "@/shared/api/mocks";
 import * as seed from "./data";
 

@@ -1,3 +1,7 @@
+/**
+ * API сервиса стажёров (service: "interns"). Теги: Intern.
+ * Используют: intern-history (все страницы), testing (LinkDialog — одноразовые ссылки).
+ */
 import { baseApi } from "@/shared/api/baseApi";
 
 /**

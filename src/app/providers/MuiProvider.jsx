@@ -1,3 +1,6 @@
+/**
+ * Провайдер темы MUI: светлая/тёмная тема и локаль компонентов (ru / tj) по настройкам из store.
+ */
 import { useMemo } from "react";
 import { useSelector } from "react-redux";
 import CssBaseline from "@mui/material/CssBaseline";

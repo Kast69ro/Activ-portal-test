@@ -1,4 +1,7 @@
 /**
+ * Используют TestsPage и TestResultsPage.
+ */
+/**
  * Адрес страницы прохождения теста.
  *   Новая попытка:  /test/run?test=1&employee=5&duration=10
  *   Продолжение:    /test/run?session=42&duration=10

@@ -1,3 +1,6 @@
+/**
+ * Страница «403 — нет доступа». Показывается RequireRole (src/app/guards.jsx).
+ */
 import { Link } from "react-router";
 import { useTranslation } from "react-i18next";
 import Button from "@mui/material/Button";

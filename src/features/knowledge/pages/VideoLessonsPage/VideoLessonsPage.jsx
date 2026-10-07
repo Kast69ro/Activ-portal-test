@@ -1,3 +1,7 @@
+/**
+ * Видеоуроки — LibraryView для папок типа VIDEO.
+ * Маршрут: /video-lessons. Доступ: все вошедшие (управление — Admin).
+ */
 import { FOLDER_TYPE } from "@/entities/knowledge/knowledgeApi";
 import { LibraryView } from "@/features/knowledge/components/LibraryView";
 

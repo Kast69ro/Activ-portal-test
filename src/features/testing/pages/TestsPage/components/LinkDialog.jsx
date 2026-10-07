@@ -1,3 +1,6 @@
+/**
+ * Используется только в TestsPage.
+ */
 import { useEffect, useState } from "react";
 import { Check, Copy, Hourglass, Link2 } from "lucide-react";
 import { useTranslation } from "react-i18next";

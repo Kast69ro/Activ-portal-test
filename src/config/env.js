@@ -6,6 +6,8 @@
  *   chat     — чат (REST + WebSocket)
  *   articles — статьи и комментарии
  *   interns  — стажёры, одноразовые ссылки на тесты
+ *
+ * Используют shared/api (baseApi, rates), shared/lib/files и WebSocket чата.
  */
 const trimSlash = (url = "") => url.replace(/\/+$/, "");
 

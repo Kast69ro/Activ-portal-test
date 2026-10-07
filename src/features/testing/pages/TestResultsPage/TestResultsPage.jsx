@@ -1,3 +1,7 @@
+/**
+ * Результаты тестов: сессии, фильтры, рейтинг, повторная попытка, выгрузка в Excel.
+ * Маршрут: /test-taking. Доступ: Admin.
+ */
 import { useMemo, useState } from "react";
 import { useNavigate } from "react-router";
 import {

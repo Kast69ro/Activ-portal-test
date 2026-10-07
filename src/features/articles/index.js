@@ -1,3 +1,6 @@
+/**
+ * Домен articles: регистрация страниц /article, /article/:id и /my-articles (доступны всем вошедшим).
+ */
 import { lazy } from "react";
 import { Newspaper } from "lucide-react";
 

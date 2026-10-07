@@ -1,3 +1,7 @@
+/**
+ * Единственный createApi проекта: выбор сервиса (main/chat/articles/interns) по полю service запроса,
+ * заголовки авторизации, выход при 401 и authorizedFetch для скачивания файлов.
+ */
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { SERVICES, env } from "@/config/env";
 import i18n from "@/shared/i18n";

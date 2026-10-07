@@ -1,3 +1,6 @@
+/**
+ * Полноэкранный просмотр картинки или видео. Используют chat, knowledge, employee-portal.
+ */
 import { X } from "lucide-react";
 import Dialog from "@mui/material/Dialog";
 import IconButton from "@mui/material/IconButton";

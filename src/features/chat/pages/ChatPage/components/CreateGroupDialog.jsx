@@ -1,3 +1,6 @@
+/**
+ * Диалог создания группового чата. Используется в ChatSidebar.
+ */
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import Button from "@mui/material/Button";

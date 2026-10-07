@@ -1,3 +1,6 @@
+/**
+ * Обёртка состояния запроса RTK Query (загрузка / ошибка / данные) — используется на страницах всех доменов.
+ */
 import { AlertTriangle } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import Button from "@mui/material/Button";

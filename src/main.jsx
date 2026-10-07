@@ -1,3 +1,7 @@
+/**
+ * Точка входа: инициализирует i18n, в режиме моков (VITE_USE_MOCKS=true) подключает src/mocks
+ * и монтирует приложение в #root.
+ */
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 // Шрифт подключён локально: система работает во внутренней сети без доступа к Google Fonts

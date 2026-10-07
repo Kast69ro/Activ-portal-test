@@ -1,3 +1,6 @@
+/**
+ * Страница входа. Маршрут: /login. Доступ: публичная (вошедших перенаправляет дальше).
+ */
 import { useState } from "react";
 import { Navigate, useLocation, useNavigate } from "react-router";
 import { Eye, EyeOff } from "lucide-react";

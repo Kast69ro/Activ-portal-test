@@ -1,3 +1,6 @@
+/**
+ * Вложение в сообщении (картинка, видео, файл). Используется в MessageItem.
+ */
 import { useEffect, useState } from "react";
 import { FileText } from "lucide-react";
 import { useTranslation } from "react-i18next";

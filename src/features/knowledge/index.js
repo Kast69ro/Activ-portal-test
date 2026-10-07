@@ -1,3 +1,6 @@
+/**
+ * Домен knowledge: регистрация страниц /video-lessons и /documentation.
+ */
 import { lazy } from "react";
 import { FileText, PlayCircle } from "lucide-react";
 

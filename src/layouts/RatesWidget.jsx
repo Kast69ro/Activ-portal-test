@@ -1,3 +1,6 @@
+/**
+ * Виджет курсов валют НБТ внизу бокового меню (Sidebar).
+ */
 import { RefreshCw, TrendingDown, TrendingUp } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import Tooltip from "@mui/material/Tooltip";

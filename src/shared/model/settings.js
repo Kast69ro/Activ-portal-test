@@ -1,3 +1,6 @@
+/**
+ * Слайс settings: тема, язык и свёрнутое меню. Сохраняется в localStorage (см. app/store.js).
+ */
 import { createSlice } from "@reduxjs/toolkit";
 import { DEFAULT_LANGUAGE, isSupportedLanguage } from "@/shared/i18n/languages";
 

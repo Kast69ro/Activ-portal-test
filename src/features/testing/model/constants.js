@@ -1,3 +1,6 @@
+/**
+ * Константы длительности тестов. Используют StartDialog, LinkDialog и TestResultsPage.
+ */
 /** Быстрый выбор длительности теста, минут */
 export const PRESET_DURATIONS = [5, 10, 15, 20, 30, 45, 60, 90];
 export const MAX_DURATION = 480;

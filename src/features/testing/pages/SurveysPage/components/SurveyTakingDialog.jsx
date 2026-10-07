@@ -1,3 +1,6 @@
+/**
+ * Используется только в SurveysPage.
+ */
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { CheckCircle2, ChevronLeft, ChevronRight, Clock } from "lucide-react";
 import { useTranslation } from "react-i18next";

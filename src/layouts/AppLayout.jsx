@@ -1,3 +1,7 @@
+/**
+ * Каркас обычных страниц: боковое меню, шапка и область контента (Outlet).
+ * Подключается в src/app/router.jsx для всех страниц с layout: "app".
+ */
 import { useEffect } from "react";
 import { Outlet, useLocation } from "react-router";
 import { useSelector } from "react-redux";

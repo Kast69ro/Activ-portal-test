@@ -1,3 +1,6 @@
+/**
+ * Домен employee-portal: регистрация страниц /select-employee и /employee/:id/dashboard (на весь экран).
+ */
 import { lazy } from "react";
 
 /**

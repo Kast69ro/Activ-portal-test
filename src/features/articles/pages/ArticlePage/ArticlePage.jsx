@@ -1,3 +1,7 @@
+/**
+ * Страница статьи: текст, медиа, комментарии с ответами.
+ * Маршрут: /article/:id. Доступ: все вошедшие.
+ */
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import { ChevronDown, ChevronUp, CornerDownRight, Pencil, Reply, Send, Trash2, X } from "lucide-react";

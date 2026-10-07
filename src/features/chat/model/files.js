@@ -1,3 +1,6 @@
+/**
+ * Скачивание файла из сообщения чата (с заголовками авторизации). Используется в MessageItem.
+ */
 import { authorizedFetch } from "@/shared/api/baseApi";
 import { downloadFile } from "@/shared/lib/files";
 

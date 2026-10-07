@@ -1,3 +1,7 @@
+/**
+ * Боковое меню. Пункты строятся из реестра фич (src/features) с учётом ролей пользователя,
+ * разделы и их порядок — из config/brand.js.
+ */
 import { NavLink } from "react-router";
 import { PanelLeftClose, PanelLeftOpen } from "lucide-react";
 import { useTranslation } from "react-i18next";

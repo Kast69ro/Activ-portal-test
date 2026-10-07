@@ -1,3 +1,6 @@
+/**
+ * Домен testing: регистрация страниц тестов, опросов, результатов, прохождения и банка вопросов.
+ */
 import { lazy } from "react";
 import { BarChart3, ClipboardCheck, ClipboardList, ListChecks, MessageSquareText, Trophy } from "lucide-react";
 

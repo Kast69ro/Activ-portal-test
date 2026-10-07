@@ -1,3 +1,6 @@
+/**
+ * Используют TestsPage и SurveysPage.
+ */
 import { CalendarDays, Link2, ListChecks, Pencil, Trash2 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import Button from "@mui/material/Button";

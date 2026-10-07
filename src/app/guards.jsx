@@ -1,3 +1,7 @@
+/**
+ * Защита маршрутов: RequireAuth — только после входа, RequireRole — по ролям из описания страницы фичи.
+ * Используются в src/app/router.jsx.
+ */
 import { useSelector } from "react-redux";
 import { Navigate, useLocation } from "react-router";
 import { ForbiddenPage } from "@/pages/ForbiddenPage";

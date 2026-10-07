@@ -1,3 +1,6 @@
+/**
+ * Формат длительности сессии. Используют TestResultsPage и его SessionDetailsDialog.
+ */
 /** Длительность сессии: бэкенд отдаёт минуты дробным числом (6.5 → «6 мин 30 сек») */
 export function formatSessionDuration(minutes, t) {
   if (minutes == null || minutes === "") return "—";

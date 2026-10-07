@@ -1,3 +1,7 @@
+/**
+ * Прохождение теста с таймером (параметры — в адресе, см. model/runUrl.js).
+ * Маршрут: /test/run (на весь экран, без меню). Доступ: все вошедшие.
+ */
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router";
 import { CheckCircle2, ChevronLeft, ChevronRight, Clock, Flag, LogOut } from "lucide-react";

@@ -1,3 +1,6 @@
+/**
+ * Страница регистрации. Маршрут: /register (ссылка на неё скрыта). Доступ: публичная.
+ */
 import { useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { useTranslation } from "react-i18next";

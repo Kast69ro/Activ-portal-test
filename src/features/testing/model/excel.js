@@ -1,10 +1,11 @@
-import { downloadFile } from "@/shared/lib/files";
-
-/*
+/**
  * Выгрузка в Excel. exceljs тяжёлый (~1 МБ), поэтому грузится только при нажатии «Экспорт».
+ * Используют TestResultsPage и SurveyResultsPage.
  *
  * sheets: [{ name, title?, columns: [{ header, width }], rows: [[...]] }]
  */
+import { downloadFile } from "@/shared/lib/files";
+
 const BRAND = "FFE31E24";
 
 export async function exportWorkbook(fileName, sheets) {

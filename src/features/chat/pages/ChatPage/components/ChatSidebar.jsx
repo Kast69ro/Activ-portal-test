@@ -1,3 +1,6 @@
+/**
+ * Левая колонка чата: свой профиль, вкладки личные/группы, поиск, список чатов. Используется в ChatPage.
+ */
 import { useMemo, useState } from "react";
 import { Search, UsersRound } from "lucide-react";
 import { useTranslation } from "react-i18next";

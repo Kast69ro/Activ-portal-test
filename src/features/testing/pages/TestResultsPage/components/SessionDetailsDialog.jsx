@@ -1,3 +1,6 @@
+/**
+ * Используется только в TestResultsPage.
+ */
 import { useState } from "react";
 import { CheckCircle2, Star, XCircle } from "lucide-react";
 import { useTranslation } from "react-i18next";

@@ -1,3 +1,6 @@
+/**
+ * Одно сообщение: текст, вложения, реакции, меню (ответ, правка, удаление). Используется в ChatThread.
+ */
 import { useState } from "react";
 import { Check, Clock, Download, MoreHorizontal, Pencil, Plus, SmilePlus, Trash2, X } from "lucide-react";
 import { useTranslation } from "react-i18next";

@@ -1,3 +1,6 @@
+/**
+ * Слайс chat — клиентское состояние чата (подключается в store автоматически).
+ */
 import { createSlice } from "@reduxjs/toolkit";
 
 const EMPTY = [];

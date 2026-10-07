@@ -1,3 +1,7 @@
+/**
+ * API тестирования (service: "main"). Теги: Question, Answer, Test, Session, Assignment.
+ * Используется только доменом testing; лежит в entities, т.к. это общая сущность бэкенда.
+ */
 import { baseApi } from "@/shared/api/baseApi";
 import { unwrapItem, unwrapList } from "@/shared/api/normalize";
 import { normalizeQuestion } from "./model";

@@ -1,3 +1,6 @@
+/**
+ * Домен intern-history: регистрация /test-history и вложенных страниц стажёра и попытки (только Admin).
+ */
 import { lazy } from "react";
 import { History } from "lucide-react";
 

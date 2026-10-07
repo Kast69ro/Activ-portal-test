@@ -1,3 +1,6 @@
+/**
+ * Профиль текущего пользователя в шапке списка чатов. Используется в ChatSidebar.
+ */
 import { useRef, useState } from "react";
 import { Camera } from "lucide-react";
 import { useTranslation } from "react-i18next";

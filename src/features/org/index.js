@@ -1,3 +1,6 @@
+/**
+ * Домен org: регистрация страниц оргструктуры (все — только Admin).
+ */
 import { lazy } from "react";
 import { Building2, IdCard, Network, Users } from "lucide-react";
 

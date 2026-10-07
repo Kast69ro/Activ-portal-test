@@ -1,3 +1,6 @@
+/**
+ * Диалог создания/редактирования статьи. Используют ArticlesPage и MyArticlesPage.
+ */
 import { useEffect, useMemo, useRef, useState } from "react";
 import { ImagePlus, Video } from "lucide-react";
 import { useTranslation } from "react-i18next";

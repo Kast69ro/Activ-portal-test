@@ -1,3 +1,7 @@
+/**
+ * Список статей с поиском и созданием новой.
+ * Маршрут: /article (в меню скрыт). Доступ: все вошедшие.
+ */
 import { useState } from "react";
 import { Plus, Search } from "lucide-react";
 import { useTranslation } from "react-i18next";

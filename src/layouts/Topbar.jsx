@@ -1,3 +1,6 @@
+/**
+ * Шапка: название текущей страницы, переключатели темы и языка, FAQ, меню пользователя (выход).
+ */
 import { useState } from "react";
 import { useMatches } from "react-router";
 import { Bell, CircleHelp, LogIn, LogOut, Moon, Sun } from "lucide-react";

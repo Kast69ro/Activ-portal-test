@@ -1,3 +1,6 @@
+/**
+ * Сборка FormData статьи для API. Используют ArticlesPage и MyArticlesPage.
+ */
 /** FormData статьи в формате API */
 export function toArticleForm({ fields, cover, video }) {
   const form = new FormData();

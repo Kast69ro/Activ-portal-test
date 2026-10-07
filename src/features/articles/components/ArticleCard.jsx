@@ -1,3 +1,6 @@
+/**
+ * Карточка статьи в списке. Используют ArticlesPage и MyArticlesPage.
+ */
 import { Link } from "react-router";
 import { CalendarDays, Newspaper, Pencil, PlayCircle, Trash2 } from "lucide-react";
 import { useTranslation } from "react-i18next";

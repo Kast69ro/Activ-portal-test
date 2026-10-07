@@ -1,3 +1,7 @@
+/**
+ * Библиотека материалов: папки, поиск, список, просмотр файлов; управление — только Admin.
+ * Общая для VideoLessonsPage и DocumentationPage (до рефакторинга — LibraryPage.jsx).
+ */
 import { useMemo, useState } from "react";
 import {
   CalendarDays,

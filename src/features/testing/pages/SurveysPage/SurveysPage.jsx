@@ -1,3 +1,7 @@
+/**
+ * Список опросов: запуск, прохождение, предпросмотр; создание и правка — Admin.
+ * Маршрут: /surveys. Доступ: все вошедшие.
+ */
 import { useEffect, useMemo, useState } from "react";
 import { useLocation, useNavigate } from "react-router";
 import { ClipboardList, Play, Plus } from "lucide-react";

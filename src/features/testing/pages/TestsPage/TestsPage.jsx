@@ -1,3 +1,7 @@
+/**
+ * Список тестов: запуск, предпросмотр, ссылка для стажёра; создание и правка — Admin.
+ * Маршрут: /test. Доступ: все вошедшие.
+ */
 import { useMemo, useState } from "react";
 import { useNavigate } from "react-router";
 import { ClipboardCheck, Play, Plus } from "lucide-react";

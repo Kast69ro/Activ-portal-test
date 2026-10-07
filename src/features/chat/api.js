@@ -1,3 +1,7 @@
+/**
+ * API чата (service: "chat"). Теги: Chats, Messages, ChatMembers, ChatMe.
+ * Используется только доменом chat.
+ */
 import { baseApi } from "@/shared/api/baseApi";
 
 /**
