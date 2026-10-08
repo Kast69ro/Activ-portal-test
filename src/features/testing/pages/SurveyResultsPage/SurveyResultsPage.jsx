@@ -26,7 +26,8 @@ import Tooltip from "@mui/material/Tooltip";
 import { QUESTION_TYPE, correctAnswer, optionText, questionText, questionType } from "@/entities/testing/model";
 import { formatDateTime, formatDuration } from "@/shared/lib/format";
 import { EmptyState, PageHeader, StatCard, useConfirm, useToast } from "@/shared/ui";
-import { exportWorkbook } from "@/features/testing/model/excel";
+import { useRetained } from "@/shared/lib/useRetained";
+import { exportWorkbook } from "@/shared/lib/excel";
 import { MAX_SURVEY_ATTEMPTS, selectSurveyResults } from "@/features/testing/model/surveyResultsSlice";
 
 const percentOf = (r) => (r.totalQuestions ? Math.round(((r.answers?.length ?? 0) / r.totalQuestions) * 100) : 0);
@@ -67,6 +68,8 @@ export default function SurveyResultsPage() {
   const confirm = useConfirm();
   const results = useSelector(selectSurveyResults);
   const [details, setDetails] = useState(null);
+  // Диалоги ниже показывают последнее значение, пока закрываются, — иначе содержимое пропадёт до конца анимации
+  const shownDetails = useRetained(details);
 
   const stats = useMemo(
     () => ({
@@ -247,16 +250,16 @@ export default function SurveyResultsPage() {
       </Card>
 
       <Dialog open={Boolean(details)} onClose={() => setDetails(null)} maxWidth="sm" fullWidth scroll="paper">
-        {details && (
+        {shownDetails && (
           <>
             <DialogTitle>
-              {details.surveyName}
-              <div className="text-sm font-medium text-fg-muted">{details.employeeName}</div>
+              {shownDetails.surveyName}
+              <div className="text-sm font-medium text-fg-muted">{shownDetails.employeeName}</div>
             </DialogTitle>
             <DialogContent dividers>
               <ol className="space-y-3">
-                {(details.answers ?? []).map((a, i) => {
-                  const d = describeAnswer(details, a, lang);
+                {(shownDetails.answers ?? []).map((a, i) => {
+                  const d = describeAnswer(shownDetails, a, lang);
                   return (
                     <li key={i} className="rounded-xl border border-line p-4">
                       <div className="font-semibold">

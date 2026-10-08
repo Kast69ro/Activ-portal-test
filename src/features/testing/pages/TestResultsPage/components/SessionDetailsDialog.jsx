@@ -23,10 +23,17 @@ import {
   testTitle,
 } from "@/entities/testing/model";
 import { formatDateTime } from "@/shared/lib/format";
+import { useRetained } from "@/shared/lib/useRetained";
 import { formatSessionDuration } from "@/features/testing/model/sessionFormat";
 
 /** Детали сессии прохождения: сведения и ответы */
-export function SessionDetailsDialog({ session, test, employee, departments, onClose }) {
+export function SessionDetailsDialog({ session: current, test: currentTest, employee: currentEmployee, departments, onClose }) {
+  // Пока окно закрывается, показываем последнюю сессию — иначе содержимое пропадёт до конца анимации
+  const session = useRetained(current);
+  const retainedTest = useRetained(currentTest);
+  const retainedEmployee = useRetained(currentEmployee);
+  const test = current ? currentTest : retainedTest;
+  const employee = current ? currentEmployee : retainedEmployee;
   const { t, i18n } = useTranslation("testing");
   const lang = i18n.language;
   const [tab, setTab] = useState("info");
@@ -53,7 +60,7 @@ export function SessionDetailsDialog({ session, test, employee, departments, onC
     : [];
 
   return (
-    <Dialog open={Boolean(session)} onClose={onClose} maxWidth="sm" fullWidth scroll="paper">
+    <Dialog open={Boolean(current)} onClose={onClose} maxWidth="sm" fullWidth scroll="paper">
       {session && (
         <>
           <DialogTitle>

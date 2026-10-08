@@ -1,6 +1,6 @@
 /**
  * Выгрузка в Excel. exceljs тяжёлый (~1 МБ), поэтому грузится только при нажатии «Экспорт».
- * Используют TestResultsPage и SurveyResultsPage.
+ * Используют TestResultsPage, SurveyResultsPage (testing) и AtmsPage (atm).
  *
  * sheets: [{ name, title?, columns: [{ header, width }], rows: [[...]] }]
  */

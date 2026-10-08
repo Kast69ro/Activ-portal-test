@@ -23,6 +23,7 @@ import TextField from "@mui/material/TextField";
 import Tooltip from "@mui/material/Tooltip";
 import { getErrorMessage } from "@/shared/api/normalize";
 import { EmptyState, PageHeader, QueryState, useConfirm, useToast } from "@/shared/ui";
+import { useRetained } from "@/shared/lib/useRetained";
 
 /**
  * Справочник с CRUD: таблица, постраничный вывод, диалог добавления/редактирования.
@@ -42,6 +43,8 @@ export function DirectoryTable({ config, page, onPageChange }) {
   const toast = useToast();
   const confirm = useConfirm();
   const [editing, setEditing] = useState(null); // null — закрыт, {} — новый, item — редактирование
+  // Диалоги ниже показывают последнее значение, пока закрываются, — иначе содержимое пропадёт до конца анимации
+  const shownEditing = useRetained(editing);
   const [values, setValues] = useState({});
   const [touched, setTouched] = useState(false);
   const [saving, setSaving] = useState(false);
@@ -151,7 +154,7 @@ export function DirectoryTable({ config, page, onPageChange }) {
 
       <Dialog open={editing !== null} onClose={() => setEditing(null)} maxWidth="xs" fullWidth>
         <form onSubmit={save} noValidate>
-          <DialogTitle>{t(editing?.id != null ? "common:actions.edit" : "common:actions.add")}</DialogTitle>
+          <DialogTitle>{t(shownEditing?.id != null ? "common:actions.edit" : "common:actions.add")}</DialogTitle>
           <DialogContent className="grid gap-4" sx={{ pt: "8px !important" }}>
             {config.fields.map((f) => {
               const error = touched && !String(values[f.name] ?? "").trim();

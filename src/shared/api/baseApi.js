@@ -1,12 +1,11 @@
 /**
- * Единственный createApi проекта: выбор сервиса (main/chat/articles/interns) по полю service запроса,
+ * Единственный createApi проекта: выбор сервиса (main/chat/interns) по полю service запроса,
  * заголовки авторизации, выход при 401 и authorizedFetch для скачивания файлов.
  */
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { SERVICES, env } from "@/config/env";
+import { SERVICES } from "@/config/env";
 import i18n from "@/shared/i18n";
 import { loggedOut } from "@/shared/model/auth";
-import { mockBaseQuery } from "./mocks";
 
 /**
  * Единый RTK Query API.
@@ -20,7 +19,7 @@ import { mockBaseQuery } from "./mocks";
  * Адреса сервисов — в .env, см. src/config/env.js.
  */
 
-/** Заголовки для каждого сервиса. Чат и статьи авторизуют по логину, основной API — по JWT. */
+/** Заголовки для каждого сервиса. Чат авторизует по логину, основной API — по JWT. */
 function applyHeaders(service, headers, state) {
   const { token, user } = state.auth;
   const login = (user?.userName ?? "").trim();
@@ -29,7 +28,7 @@ function applyHeaders(service, headers, state) {
     if (token) headers.set("Authorization", `Bearer ${token}`);
     headers.set("Accept-Language", i18n.language === "tj" ? "tg" : "ru");
   }
-  if ((service === "chat" || service === "articles") && login) {
+  if (service === "chat" && login) {
     headers.set("Login", login);
   }
   return headers;
@@ -58,7 +57,7 @@ async function httpBaseQuery(args, api, extraOptions) {
 
 export const baseApi = createApi({
   reducerPath: "api",
-  baseQuery: env.useMocks ? mockBaseQuery : httpBaseQuery,
+  baseQuery: httpBaseQuery,
   // Сущности и фичи добавляют свои теги через baseApi.enhanceEndpoints({ addTagTypes: [...] })
   tagTypes: [],
   endpoints: () => ({}),

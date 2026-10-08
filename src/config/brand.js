@@ -9,4 +9,4 @@ export const brand = {
 };
 
 /** Разделы бокового меню. Порядок здесь = порядок в меню. Названия — common:nav.<id> */
-export const navSections = ["main", "administration", "knowledge", "testing", "communication"];
+export const navSections = ["main", "administration", "monitoring", "knowledge", "testing", "communication"];

@@ -6,15 +6,11 @@
 ```bash
 cp .env.example .env   # адреса бэкендов
 npm install
-npm run dev            # http://localhost:5173
+npm run dev            # http://localhost:3000
 npm run build
 npm run lint
 npm run i18n:check     # все ли ключи переведены на оба языка
 ```
-
-**Без доступа к сети банка** поставьте `VITE_USE_MOCKS=true` в `.env` — интерфейс запустится на тестовых данных
-(`src/mocks`). Вход — любой логин и пароль; логин с «user» входит как Basic, остальные — как Admin.
-Чат, статьи и история стажёров в этом режиме не работают: у них отдельные сервисы.
 
 ## Разделы
 
@@ -29,8 +25,6 @@ npm run i18n:check     # все ли ключи переведены на оба
 | История стажёров | `/test-history` | Admin |
 | Чат | `/chat` | всем |
 | Банк вопросов, ручной ввод ответов | `/question`, `/reply` | Admin, нет в меню |
-| Статьи, мои статьи | `/article`, `/my-articles` | всем, нет в меню |
-| Кабинет сотрудника | `/select-employee`, `/employee/:id/dashboard` | всем, нет в меню |
 
 «Admin» — роли `Admin` и `SuperAdmin`. Страница для администраторов, открытая без прав, покажет «Нет доступа».
 
@@ -42,7 +36,6 @@ npm run i18n:check     # все ли ключи переведены на оба
 |---|---|---|
 | Основной API (.NET) | `VITE_API_URL` | `Authorization: Bearer <jwt>` |
 | Чат (REST + WebSocket) | `VITE_CHAT_API_URL` | заголовок `Login: <логин>` |
-| Статьи | `VITE_ARTICLES_API_URL` | заголовок `Login: <логин>` |
 | Стажёры | `VITE_INTERNS_API_URL` | — |
 | Курсы НБТ | `VITE_RATES_URL` | — |
 
@@ -69,7 +62,7 @@ src/
 │   └── users/                 — вход, пользователи
 ├── features/              # разделы — каждый в своей папке
 │   ├── index.js           # реестр: подхватывает фичи автоматически
-│   ├── auth/  home/  org/  knowledge/  testing/  intern-history/  chat/  articles/  employee-portal/
+│   ├── auth/  home/  org/  knowledge/  testing/  intern-history/  chat/
 │   └── chat/
 │       ├── index.js       # описание страниц фичи
 │       ├── ChatPage.jsx
@@ -78,7 +71,6 @@ src/
 │       ├── useChatSocket.js
 │       ├── components/
 │       └── locales/       # ru.json, tj.json
-├── mocks/                 # тестовые данные для VITE_USE_MOCKS=true
 ├── pages/                 # 403, 404
 └── shared/
     ├── api/               # baseApi (все сервисы), разбор ответов .NET, курсы НБТ
@@ -151,10 +143,10 @@ RU и TJ. Тексты интерфейса — `src/shared/i18n/locales/` и `l
 ## Отличия от прежней HR-системы
 
 - **Результаты опросов по-прежнему хранятся только в браузере** (localStorage, ключ `survey_results`):
-  на бэкенде нет для них API. С другого компьютера их не видно. Место для замены — `src/features/testing/surveyResultsSlice.js`.
+  на бэкенде нет для них API. С другого компьютера их не видно. Место для замены — `src/features/testing/model/surveyResultsSlice.js`.
 - Страницы администратора закрыты для Basic и по прямой ссылке (раньше скрывался только пункт меню).
 - Чат — в меню у всех ролей (раньше пункт видели только Basic).
-- Кабинет сотрудника (`/select-employee`) требует входа (раньше открывался без него).
+- Кабинета сотрудника (`/select-employee`) больше нет.
 - При истёкшем токене (ответ 401) выполняется выход на страницу входа.
 - Тип вопроса отправляется числом (1/2/3) — раньше часть страниц слала строку `"MultipleChoice"`.
 - Прохождение теста переживает обновление вкладки: та же сессия, таймер не сбрасывается.

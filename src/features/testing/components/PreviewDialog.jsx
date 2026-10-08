@@ -8,15 +8,18 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
 import { correctAnswer, optionText, questionText, testDescription, testTitle } from "@/entities/testing/model";
+import { useRetained } from "@/shared/lib/useRetained";
 import { QuestionTypeChip } from "./QuestionTypeChip";
 
 /** Просмотр теста/опроса: список вопросов, для тестов — с правильными ответами */
-export function PreviewDialog({ test, showAnswers, onClose }) {
+export function PreviewDialog({ test: current, showAnswers, onClose }) {
+  // Пока окно закрывается, показываем последний тест — иначе содержимое пропадёт до конца анимации
+  const test = useRetained(current);
   const { t, i18n } = useTranslation("testing");
   const lang = i18n.language;
 
   return (
-    <Dialog open={Boolean(test)} onClose={onClose} maxWidth="md" fullWidth scroll="paper">
+    <Dialog open={Boolean(current)} onClose={onClose} maxWidth="md" fullWidth scroll="paper">
       {test && (
         <>
           <DialogTitle>{testTitle(test, lang)}</DialogTitle>

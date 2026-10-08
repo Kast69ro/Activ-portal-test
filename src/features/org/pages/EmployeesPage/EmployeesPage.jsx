@@ -39,6 +39,7 @@ import {
 } from "@/entities/org/orgApi";
 import { getErrorMessage } from "@/shared/api/normalize";
 import { EmptyState, PageHeader, QueryState, useConfirm, useToast } from "@/shared/ui";
+import { useRetained } from "@/shared/lib/useRetained";
 import { selectEmployeeSearch, selectPage, setEmployeeSearch, setPage } from "@/features/org/model/orgSlice";
 
 const EMPTY_FORM = {
@@ -72,6 +73,9 @@ export default function EmployeesPage() {
 
   const [viewing, setViewing] = useState(null);
   const [editing, setEditing] = useState(null);
+  // Диалоги ниже показывают последнее значение, пока закрываются, — иначе содержимое пропадёт до конца анимации
+  const shownViewing = useRetained(viewing);
+  const shownEditing = useRetained(editing);
   const [form, setForm] = useState(EMPTY_FORM);
   const [touched, setTouched] = useState(false);
   const [saving, setSaving] = useState(false);
@@ -249,30 +253,30 @@ export default function EmployeesPage() {
 
       {/* Карточка сотрудника */}
       <Dialog open={Boolean(viewing)} onClose={() => setViewing(null)} maxWidth="xs" fullWidth>
-        {viewing && (
+        {shownViewing && (
           <>
             <DialogContent sx={{ pt: 4 }}>
               <div className="flex flex-col items-center text-center">
                 <Avatar sx={{ width: 72, height: 72, fontSize: 26, bgcolor: "primary.main" }}>
-                  {(viewing.firstName?.[0] ?? "") + (viewing.lastName?.[0] ?? "")}
+                  {(shownViewing.firstName?.[0] ?? "") + (shownViewing.lastName?.[0] ?? "")}
                 </Avatar>
-                <div className="mt-3 text-xl font-extrabold">{employeeName(viewing)}</div>
-                <div className="text-fg-muted">{nameOf(pos, viewing.positionId, "title")}</div>
+                <div className="mt-3 text-xl font-extrabold">{employeeName(shownViewing)}</div>
+                <div className="text-fg-muted">{nameOf(pos, shownViewing.positionId, "title")}</div>
               </div>
               <div className="mt-6 grid gap-3 text-sm">
-                {viewing.email && (
-                  <a href={`mailto:${viewing.email}`} className="flex items-center gap-2 text-brand-600">
-                    <Mail className="size-4" /> {viewing.email}
+                {shownViewing.email && (
+                  <a href={`mailto:${shownViewing.email}`} className="flex items-center gap-2 text-brand-600">
+                    <Mail className="size-4" /> {shownViewing.email}
                   </a>
                 )}
-                {viewing.phone && (
-                  <a href={`tel:${viewing.phone}`} className="flex items-center gap-2 text-brand-600">
-                    <Phone className="size-4" /> {viewing.phone}
+                {shownViewing.phone && (
+                  <a href={`tel:${shownViewing.phone}`} className="flex items-center gap-2 text-brand-600">
+                    <Phone className="size-4" /> {shownViewing.phone}
                   </a>
                 )}
                 <div className="flex flex-wrap gap-2 pt-2">
-                  <Chip label={nameOf(deps, viewing.departmentId)} />
-                  <Chip label={nameOf(subs, viewing.subDepartmentId)} variant="outlined" />
+                  <Chip label={nameOf(deps, shownViewing.departmentId)} />
+                  <Chip label={nameOf(subs, shownViewing.subDepartmentId)} variant="outlined" />
                 </div>
               </div>
             </DialogContent>
@@ -280,7 +284,7 @@ export default function EmployeesPage() {
               <Button
                 startIcon={<Pencil className="size-4" />}
                 onClick={() => {
-                  openForm(viewing);
+                  openForm(shownViewing);
                   setViewing(null);
                 }}
               >
@@ -297,7 +301,7 @@ export default function EmployeesPage() {
       {/* Добавление / редактирование */}
       <Dialog open={editing !== null} onClose={() => setEditing(null)} maxWidth="sm" fullWidth>
         <form onSubmit={save} noValidate>
-          <DialogTitle>{t(editing?.id != null ? "employees.editTitle" : "employees.addTitle")}</DialogTitle>
+          <DialogTitle>{t(shownEditing?.id != null ? "employees.editTitle" : "employees.addTitle")}</DialogTitle>
           <DialogContent className="grid grid-cols-2 gap-4" sx={{ pt: "8px !important" }}>
             <TextField
               label={t("common:fields.firstName")}

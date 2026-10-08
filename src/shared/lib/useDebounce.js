@@ -1,5 +1,5 @@
 /**
- * Хук отложенного значения — для поиска при вводе (articles, chat, intern-history).
+ * Хук отложенного значения — для поиска при вводе (chat, intern-history).
  */
 import { useEffect, useState } from "react";
 

@@ -1,6 +1,6 @@
 /**
  * API оргструктуры (service: "main"). Теги: Department, SubDepartment, Position, Employee.
- * Используют: org, testing, knowledge, employee-portal.
+ * Используют: org, testing, knowledge.
  */
 import { baseApi } from "@/shared/api/baseApi";
 import { unwrapList } from "@/shared/api/normalize";

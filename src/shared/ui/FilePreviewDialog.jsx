@@ -1,15 +1,18 @@
 /**
- * Полноэкранный просмотр картинки или видео. Используют chat, knowledge, employee-portal.
+ * Полноэкранный просмотр картинки или видео. Используют chat и knowledge.
  */
 import { X } from "lucide-react";
 import Dialog from "@mui/material/Dialog";
 import IconButton from "@mui/material/IconButton";
+import { useRetained } from "@/shared/lib/useRetained";
 
 /** Просмотр картинки или видео поверх страницы. file = { url, type: "image" | "video" } | null */
-export function FilePreviewDialog({ file, onClose }) {
+export function FilePreviewDialog({ file: current, onClose }) {
+  // Пока окно закрывается, показываем последний файл — иначе содержимое пропадёт до конца анимации
+  const file = useRetained(current);
   return (
     <Dialog
-      open={Boolean(file)}
+      open={Boolean(current)}
       onClose={onClose}
       maxWidth="lg"
       slotProps={{ paper: { sx: { bgcolor: "#000", overflow: "hidden" } } }}

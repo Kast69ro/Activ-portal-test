@@ -22,6 +22,7 @@ import {
 } from "@/entities/testing/testingApi";
 import { getErrorMessage } from "@/shared/api/normalize";
 import { EmptyState, PageHeader, QueryState, useConfirm, useToast } from "@/shared/ui";
+import { useRetained } from "@/shared/lib/useRetained";
 import { QuestionForm } from "@/features/testing/components/QuestionForm";
 import { QuestionTypeChip } from "@/features/testing/components/QuestionTypeChip";
 
@@ -34,6 +35,8 @@ export default function QuestionsPage() {
   const [page, setPage] = useState({ pageNumber: 1, pageSize: 10 });
   const [editing, setEditing] = useState(null);
   const [revealed, setRevealed] = useState(null);
+  // Диалоги ниже показывают последнее значение, пока закрываются, — иначе содержимое пропадёт до конца анимации
+  const shownEditing = useRetained(editing);
 
   const query = useGetQuestionsQuery(page);
   const [create, createState] = useCreateQuestionMutation();
@@ -146,10 +149,10 @@ export default function QuestionsPage() {
       </QueryState>
 
       <Dialog open={editing !== null} onClose={() => setEditing(null)} maxWidth="sm" fullWidth>
-        <DialogTitle>{t(editing?.id != null ? "questions.edit" : "question.create")}</DialogTitle>
+        <DialogTitle>{t(shownEditing?.id != null ? "questions.edit" : "question.create")}</DialogTitle>
         <DialogContent sx={{ pt: "8px !important" }}>
           <QuestionForm
-            initial={editing?.id != null ? editing : null}
+            initial={shownEditing?.id != null ? shownEditing : null}
             submitLabel={t("common:actions.save")}
             loading={createState.isLoading || updateState.isLoading}
             onSubmit={save}

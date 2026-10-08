@@ -12,6 +12,7 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import Snackbar from "@mui/material/Snackbar";
+import { useRetained } from "@/shared/lib/useRetained";
 import { ConfirmContext, ToastContext } from "./feedbackContext";
 
 /*
@@ -54,6 +55,8 @@ export function FeedbackProvider({ children }) {
 
   // ─── Подтверждение: промис, который резолвится true/false ───
   const [dialog, setDialog] = useState(null);
+  // Пока окно закрывается, показываем прежние тексты — иначе заголовок и кнопки сменятся посреди анимации
+  const shownDialog = useRetained(dialog);
   const resolver = useRef(null);
 
   const confirm = useCallback(
@@ -90,23 +93,23 @@ export function FeedbackProvider({ children }) {
         </Snackbar>
 
         <Dialog open={Boolean(dialog)} onClose={() => closeDialog(false)} maxWidth="xs" fullWidth>
-          <DialogTitle>{dialog?.title}</DialogTitle>
-          {dialog?.description && (
+          <DialogTitle>{shownDialog?.title}</DialogTitle>
+          {shownDialog?.description && (
             <DialogContent>
-              <DialogContentText>{dialog.description}</DialogContentText>
+              <DialogContentText>{shownDialog.description}</DialogContentText>
             </DialogContent>
           )}
           <DialogActions sx={{ px: 3, pb: 2.5 }}>
             <Button color="inherit" onClick={() => closeDialog(false)}>
-              {dialog?.cancelText ?? t("actions.cancel")}
+              {shownDialog?.cancelText ?? t("actions.cancel")}
             </Button>
             <Button
               variant="contained"
-              color={dialog?.danger ? "error" : "primary"}
+              color={shownDialog?.danger ? "error" : "primary"}
               onClick={() => closeDialog(true)}
               autoFocus
             >
-              {dialog?.confirmText ?? (dialog?.danger ? t("actions.delete") : t("actions.confirm"))}
+              {shownDialog?.confirmText ?? (shownDialog?.danger ? t("actions.delete") : t("actions.confirm"))}
             </Button>
           </DialogActions>
         </Dialog>

@@ -8,6 +8,7 @@ import GlobalStyles from "@mui/material/GlobalStyles";
 import { StyledEngineProvider, ThemeProvider, createTheme } from "@mui/material/styles";
 import { ruRU } from "@mui/material/locale";
 import { selectLanguage, selectTheme } from "@/shared/model/settings";
+import { DialogTransition } from "@/shared/ui/DialogTransition";
 import { tjTJ } from "./muiLocaleTj";
 
 /*
@@ -66,7 +67,11 @@ function buildTheme(mode, language) {
           defaultProps: { variant: "outlined" },
           styleOverrides: { root: { borderRadius: 20 } },
         },
-        MuiDialog: { styleOverrides: { paper: { borderRadius: 20 } } },
+        MuiDialog: {
+          // Плавное появление и закрытие: затухание + лёгкий подъём окна (src/shared/ui/DialogTransition.jsx)
+          defaultProps: { slots: { transition: DialogTransition }, transitionDuration: { enter: 260, exit: 180 } },
+          styleOverrides: { paper: { borderRadius: 20 } },
+        },
         MuiDialogTitle: { styleOverrides: { root: { fontWeight: 800, fontSize: "1.15rem" } } },
         MuiChip: { styleOverrides: { root: { fontWeight: 600 } } },
         MuiTooltip: { defaultProps: { arrow: true } },
