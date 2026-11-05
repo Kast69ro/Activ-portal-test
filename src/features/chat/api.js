@@ -14,6 +14,11 @@ const asList = (res) => {
   const raw = unwrap(res);
   return Array.isArray(raw) ? raw : [];
 };
+/** Поиск сотрудников отвечает массивом или объектом с users / items / results */
+const asUserList = (res) => {
+  const d = unwrap(res);
+  return [d, d?.users, d?.items, d?.results].find(Array.isArray) ?? [];
+};
 const chat = (url, extra = {}) => ({ url, service: "chat", ...extra });
 
 export const chatApi = baseApi
@@ -21,9 +26,22 @@ export const chatApi = baseApi
   .injectEndpoints({
     endpoints: (build) => ({
       getMe: build.query({
-        query: () => chat("/users/me"),
+        query: (login) => chat("/users/me", { params: { login } }),
         transformResponse: unwrap,
         providesTags: ["ChatMe"],
+      }),
+      /** Имя и фамилия в профиле чата: { login, first_name, last_name } */
+      updateMe: build.mutation({
+        query: ({ login, ...body }) => chat("/users/me", { method: "PUT", body, params: { login } }),
+        transformResponse: unwrap,
+        onQueryStarted: async ({ login, ...body }, { dispatch, queryFulfilled }) => {
+          const { data } = await queryFulfilled;
+          dispatch(
+            chatApi.util.updateQueryData("getMe", login, (draft) => {
+              Object.assign(draft, data?.id ? data : body);
+            }),
+          );
+        },
       }),
       uploadAvatar: build.mutation({
         query: (file) => {
@@ -33,9 +51,10 @@ export const chatApi = baseApi
         },
         invalidatesTags: ["ChatMe"],
       }),
+      /** Поиск по имени, фамилии и логину: { query, login } */
       searchUsers: build.query({
-        query: (q) => chat("/users/search", { params: { query: q } }),
-        transformResponse: asList,
+        query: ({ query, login }) => chat("/users/search/name", { params: { query, login } }),
+        transformResponse: asUserList,
       }),
 
       // ─── Чаты ───
@@ -138,6 +157,7 @@ export const chatApi = baseApi
 
 export const {
   useGetMeQuery,
+  useUpdateMeMutation,
   useUploadAvatarMutation,
   useSearchUsersQuery,
   useGetChatsQuery,

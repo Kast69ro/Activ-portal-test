@@ -22,7 +22,7 @@ import { selectLogin } from "@/shared/model/auth";
 import { useToast } from "@/shared/ui";
 import { useCreateChatMutation, useGetChatsQuery, useMarkReadMutation, useSearchUsersQuery } from "@/features/chat/api";
 import { openChat, selectActiveChatId, selectChatType, selectOnlineUserIds, setChatType } from "@/features/chat/model/chatSlice";
-import { avatarSrc, getPeer, initialOf, messagePreview } from "@/features/chat/model/utils";
+import { avatarSrc, getChatTitle, getDisplayName, getPeer, initialOf, messagePreview } from "@/features/chat/model/utils";
 import { CreateGroupDialog } from "./CreateGroupDialog";
 import { UserHeader } from "./UserHeader";
 
@@ -40,13 +40,16 @@ export function ChatSidebar({ me }) {
   const debounced = useDebounce(search.trim(), 400);
 
   const { data: chats = [], isLoading, isError, error } = useGetChatsQuery(chatType);
-  const { data: users = [], isFetching: searching } = useSearchUsersQuery(debounced, { skip: !debounced });
+  const { data: users = [], isFetching: searching } = useSearchUsersQuery({ query: debounced, login }, { skip: !debounced });
   const [createChat] = useCreateChatMutation();
   const [markRead] = useMarkReadMutation();
 
   const filtered = useMemo(
-    () => chats.filter((c) => (c.name ?? "").toLowerCase().includes(search.trim().toLowerCase())),
-    [chats, search],
+    () => {
+      const q = search.trim().toLowerCase();
+      return chats.filter((c) => [getChatTitle(c, login), c.name].some((s) => s?.toLowerCase().includes(q)));
+    },
+    [chats, search, login],
   );
 
   // Среди найденных сотрудников — только те, с кем ещё нет личного чата
@@ -128,6 +131,7 @@ export function ChatSidebar({ me }) {
           const peer = getPeer(chat, login);
           const peerId = peer?.id ?? peer?.user_id;
           const avatar = peer?.avatar_url || chat.avatar_url;
+          const title = getChatTitle(chat, login);
           return (
             <button
               key={chat.id}
@@ -145,12 +149,12 @@ export function ChatSidebar({ me }) {
                 anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
               >
                 <Avatar src={avatarSrc(avatar)} sx={{ width: 48, height: 48 }}>
-                  {initialOf(chat.name)}
+                  {initialOf(title)}
                 </Avatar>
               </Badge>
               <div className="min-w-0 flex-1">
                 <div className="flex items-center justify-between gap-2">
-                  <span className="truncate font-semibold">{chat.name}</span>
+                  <span className="truncate font-semibold">{title}</span>
                   <span className="shrink-0 text-xs text-fg-muted">
                     {formatRelativeDay(chat.last_message?.created_at || chat.updated_at, t("common:time.yesterday"))}
                   </span>
@@ -192,11 +196,11 @@ export function ChatSidebar({ me }) {
                 >
                   <Badge overlap="circular" variant="dot" color="success" invisible={!online.includes(u.id)}>
                     <Avatar src={avatarSrc(u.avatar_url)} sx={{ width: 40, height: 40 }}>
-                      {initialOf(u.username)}
+                      {initialOf(getDisplayName(u))}
                     </Avatar>
                   </Badge>
                   <div className="min-w-0">
-                    <div className="truncate font-medium">{u.full_name || u.username}</div>
+                    <div className="truncate font-medium">{getDisplayName(u)}</div>
                     <div className="truncate text-xs text-fg-muted">@{u.username}</div>
                   </div>
                 </button>

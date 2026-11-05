@@ -27,7 +27,7 @@ import {
   useRemoveMemberMutation,
   useUpdateMemberRoleMutation,
 } from "@/features/chat/api";
-import { avatarSrc, initialOf } from "@/features/chat/model/utils";
+import { avatarSrc, getDisplayName, initialOf } from "@/features/chat/model/utils";
 import { UserPicker } from "./UserPicker";
 
 const ROLE_COLOR = { owner: "primary", admin: "info", member: "default" };
@@ -53,7 +53,10 @@ export function MembersDialog({ open, chatId, onClose }) {
   const isOwner = self?.role === "owner";
   const isAdmin = self?.role === "admin";
 
-  const filtered = members.filter((m) => (m.user?.username ?? "").toLowerCase().includes(search.trim().toLowerCase()));
+  const q = search.trim().toLowerCase();
+  const filtered = members.filter((m) =>
+    [getDisplayName(m.user), m.user?.username].some((s) => s?.toLowerCase().includes(q)),
+  );
 
   const changeRole = async (member, role) => {
     setRoleMenu(null);
@@ -65,7 +68,7 @@ export function MembersDialog({ open, chatId, onClose }) {
   };
 
   const remove = async (member) => {
-    if (!(await confirm({ title: t("group.removeConfirm", { name: member.user?.username }), danger: true }))) return;
+    if (!(await confirm({ title: t("group.removeConfirm", { name: getDisplayName(member.user) }), danger: true }))) return;
     try {
       await removeMember({ chatId, userId: member.user_id }).unwrap();
     } catch {
@@ -133,11 +136,11 @@ export function MembersDialog({ open, chatId, onClose }) {
                 return (
                   <li key={m.user_id} className="flex items-center gap-3 py-2.5">
                     <Badge overlap="circular" variant="dot" color="success" invisible={!m.user?.is_online}>
-                      <Avatar src={avatarSrc(m.user?.avatar_url)}>{initialOf(m.user?.username)}</Avatar>
+                      <Avatar src={avatarSrc(m.user?.avatar_url)}>{initialOf(getDisplayName(m.user))}</Avatar>
                     </Badge>
                     <div className="min-w-0 flex-1">
                       <div className="flex items-center gap-1.5 text-sm font-medium">
-                        <span className="truncate">{m.user?.username}</span>
+                        <span className="truncate">{getDisplayName(m.user)}</span>
                         {m.role === "owner" && <Crown className="size-3.5 text-brand-600" />}
                         {isSelf && <span className="text-xs text-fg-muted">{t("group.you")}</span>}
                       </div>

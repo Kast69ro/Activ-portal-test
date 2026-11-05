@@ -24,7 +24,7 @@ import {
 } from "@/features/chat/api";
 import { EmojiPicker } from "./EmojiPicker";
 import { downloadChatFile } from "@/features/chat/model/files";
-import { QUICK_REACTIONS } from "@/features/chat/model/utils";
+import { QUICK_REACTIONS, getDisplayName } from "@/features/chat/model/utils";
 import { FileAttachment } from "./FileAttachment";
 
 export function MessageItem({ msg, chatId, me, isMine, onPreview }) {
@@ -109,7 +109,7 @@ export function MessageItem({ msg, chatId, me, isMine, onPreview }) {
       >
         <div className="mb-0.5 flex items-center justify-between gap-3">
           <span className={cn("text-sm font-bold", isMine ? "text-brand-700 dark:text-brand-300" : "text-fg")}>
-            {isMine ? t("you") : msg.sender?.username}
+            {isMine ? t("you") : getDisplayName(msg.sender)}
           </span>
           <span className="flex opacity-0 transition-opacity group-hover:opacity-100">
             <IconButton size="small" onClick={(e) => setReactAnchor(e.currentTarget)}>

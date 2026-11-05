@@ -18,6 +18,7 @@ import MenuItem from "@mui/material/MenuItem";
 import Popover from "@mui/material/Popover";
 import Tooltip from "@mui/material/Tooltip";
 import { useGetUsersQuery, userDisplayName, userLoginTime, userRoles } from "@/entities/users/usersApi";
+import { cn } from "@/shared/lib/cn";
 import { formatDateTime } from "@/shared/lib/format";
 import { getDisplayName, loggedOut, selectIsAdmin, selectRoles, selectUser } from "@/shared/model/auth";
 import { selectTheme, toggleTheme } from "@/shared/model/settings";
@@ -36,7 +37,7 @@ export function Topbar() {
 
   return (
     <header className="sticky top-0 z-30 border-b border-line bg-card/80 backdrop-blur-xl">
-      <div className="mx-auto flex h-16 max-w-360 items-center gap-3 px-8">
+      <div className={cn("mx-auto flex h-16 items-center gap-3", feature?.wide ? "px-4" : "max-w-360 px-8")}>
         <div className="min-w-0 flex-1 truncate text-sm font-semibold text-fg-muted">
           {feature && t(feature.titleKey, { ns: feature.ns })}
         </div>

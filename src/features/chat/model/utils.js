@@ -15,6 +15,19 @@ export function getPeer(chat, login) {
   return chat.members?.find((m) => m.user?.username !== login)?.user ?? null;
 }
 
+/** «Имя Фамилия», если есть, иначе логин */
+export function getDisplayName(user) {
+  if (!user) return "";
+  const full = user.full_name?.trim() || [user.first_name, user.last_name].filter(Boolean).join(" ").trim();
+  return full || user.username || "";
+}
+
+/** Заголовок чата: для личного — имя собеседника, для группы — название */
+export function getChatTitle(chat, login) {
+  const peer = getPeer(chat, login);
+  return (peer && getDisplayName(peer)) || chat?.name || "";
+}
+
 /** Текст последнего сообщения для списка чатов */
 export function messagePreview(message, t) {
   if (!message) return t("noMessages");

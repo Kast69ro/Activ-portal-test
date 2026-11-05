@@ -1,7 +1,7 @@
 /**
  * API банкоматов. Тегов нет: данные только читаются. Используется только доменом atm.
  *   service "atm"          — мониторинг (PHP, VITE_ATM_API_URL): состояние, кассеты, ошибки
- *   service "transactions" — операции по банкомату за период (VITE_TRANSACTIONS_API_URL)
+ *   service "transactions" — операции по банкомату или по всем банкоматам за период (VITE_TRANSACTIONS_API_URL)
  */
 import { baseApi } from "@/shared/api/baseApi";
 import { toAtm } from "./model/atm";
@@ -25,7 +25,16 @@ export const atmApi = baseApi.injectEndpoints({
       }),
       transformResponse: (res) => asList(res).map(toTransaction),
     }),
+    /** Выдачи наличных (тип 700) всех банкоматов за период — для оборота за вчера → [toTransaction(...)] */
+    getAtmsHistory: build.query({
+      query: ({ fromDate, toDate }) => ({
+        url: "/Transactions/search-transactions",
+        service: "transactions",
+        params: { transactionType: 700, fromDate, toDate },
+      }),
+      transformResponse: (res) => asList(res).map(toTransaction),
+    }),
   }),
 });
 
-export const { useGetAtmsQuery, useGetAtmTransactionsQuery } = atmApi;
+export const { useGetAtmsQuery, useGetAtmTransactionsQuery, useGetAtmsHistoryQuery } = atmApi;

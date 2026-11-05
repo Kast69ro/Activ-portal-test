@@ -11,6 +11,8 @@ export default {
   section: "monitoring",
   order: 10,
   roles: ["admin"],
+  // Широкая таблица с купюрами — страница на всю ширину экрана
+  wide: true,
   page: lazy(() => import("./pages/AtmsPage/AtmsPage")),
   children: [{ path: ":id/report", page: lazy(() => import("./pages/AtmReportPage/AtmReportPage")) }],
 };

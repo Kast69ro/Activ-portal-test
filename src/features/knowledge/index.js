@@ -1,8 +1,8 @@
 /**
- * Домен knowledge: регистрация страниц /video-lessons и /documentation.
+ * Домен knowledge: регистрация страниц /video-lessons, /documentation и /course-catalog.
  */
 import { lazy } from "react";
-import { FileText, PlayCircle } from "lucide-react";
+import { BookOpen, FileText, PlayCircle } from "lucide-react";
 
 /** База знаний: читают все, управляют (папки, материалы) — администраторы */
 export default [
@@ -23,5 +23,14 @@ export default [
     order: 20,
     titleKey: "documentation.title",
     page: lazy(() => import("./pages/DocumentationPage/DocumentationPage")),
+  },
+  {
+    id: "course-catalog",
+    path: "/course-catalog",
+    icon: BookOpen,
+    section: "knowledge",
+    order: 30,
+    titleKey: "courses.title",
+    page: lazy(() => import("./pages/CourseCatalogPage/CourseCatalogPage")),
   },
 ];

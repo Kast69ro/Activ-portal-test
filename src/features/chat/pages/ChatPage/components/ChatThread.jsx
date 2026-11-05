@@ -44,7 +44,7 @@ import {
 } from "@/features/chat/api";
 import { openChat, selectActiveChatId, selectChatType, selectOnlineUserIds, selectTypingIds } from "@/features/chat/model/chatSlice";
 import { sendSocket } from "@/features/chat/model/socket";
-import { avatarSrc, getPeer, groupByDay, initialOf } from "@/features/chat/model/utils";
+import { avatarSrc, getDisplayName, getPeer, groupByDay, initialOf } from "@/features/chat/model/utils";
 import { EmojiPicker } from "./EmojiPicker";
 import { MembersDialog } from "./MembersDialog";
 import { MessageItem } from "./MessageItem";
@@ -121,11 +121,11 @@ export function ChatThread({ me }) {
   const peer = getPeer(chat, login);
   const peerId = peer?.id ?? peer?.user_id;
   const peerOnline = peerId != null && online.includes(peerId);
-  const title = peer?.username || chat.name;
+  const title = (peer && getDisplayName(peer)) || chat.name;
 
   const typingNames = typingIds
     .filter((id) => id !== me?.id)
-    .map((id) => chat.members?.find((m) => (m.user_id ?? m.user?.id) === id)?.user?.username)
+    .map((id) => getDisplayName(chat.members?.find((m) => (m.user_id ?? m.user?.id) === id)?.user))
     .filter(Boolean);
 
   const stopTyping = () => {

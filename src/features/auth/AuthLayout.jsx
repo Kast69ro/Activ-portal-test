@@ -18,7 +18,10 @@ export function AuthLayout({ title, subtitle, children, width = 420 }) {
             <span className="grid size-12 place-items-center rounded-2xl bg-white">
               <LogoMark className="size-8" />
             </span>
-            <span className="text-2xl font-extrabold tracking-tight">{t("common:brand.name")}</span>
+            <span className="flex flex-col leading-tight">
+              <span className="text-2xl font-extrabold tracking-tight">{t("common:brand.product")}</span>
+              <span className="text-sm font-medium text-white/70">{t("common:brand.name")}</span>
+            </span>
           </div>
           <div className="mt-auto max-w-lg">
             <h2 className="text-4xl leading-tight font-extrabold">{t("hero.title")}</h2>
@@ -35,8 +38,9 @@ export function AuthLayout({ title, subtitle, children, width = 420 }) {
           <div className="flex flex-col items-center">
             <LogoMark className="size-14" />
             <span className="mt-2 text-sm font-extrabold tracking-[0.2em] text-brand-600 uppercase">
-              {t("common:brand.name")}
+              {t("common:brand.product")}
             </span>
+            <span className="text-xs font-medium text-fg-muted">{t("common:brand.name")}</span>
           </div>
           <h1 className="mt-6 text-center text-2xl font-extrabold">{title}</h1>
           {subtitle && <p className="mt-1 text-center text-fg-muted">{subtitle}</p>}

@@ -23,6 +23,7 @@
  *     roles: ["admin"],            // кому доступна; не указано — всем вошедшим
  *     titleKey: "title",           // ключ названия в переводах фичи (по умолчанию "title")
  *     layout: "app",               // "app" — с меню и шапкой, "blank" — на весь экран
+ *     wide: false,                 // true — контент на всю ширину с узкими полями (широкие таблицы)
  *     public: false,               // true — доступна без входа (страница логина)
  *     page: lazy(() => import("./pages/ChatPage/ChatPage")),
  *     children: [{ path: ":id", page: lazy(...) }], // вложенные страницы

@@ -38,6 +38,13 @@ const SORT_VALUE = {
   date: (r) => r.ts ?? 0,
 };
 
+/** Короткая подпись статуса: первая часть фразы до запятой/точки/скобки, не длиннее 22 символов */
+const SHORT_MAX = 22;
+function shortStatus(text) {
+  const first = String(text).split(/[,.;:(]|\s[-–—]\s/)[0].trim() || String(text).trim();
+  return first.length > SHORT_MAX ? `${first.slice(0, SHORT_MAX - 1).trimEnd()}…` : first;
+}
+
 function compare(a, b) {
   const na = Number(a);
   const nb = Number(b);
@@ -145,14 +152,25 @@ export function TransactionsTable({ transactions }) {
                     </TableCell>
                     <TableCell sx={{ whiteSpace: "nowrap" }}>{r.atmId || "—"}</TableCell>
                     <TableCell sx={{ wordBreak: "break-all" }}>{r.utrnno || "—"}</TableCell>
-                    <TableCell>
-                      <Chip
-                        size="small"
-                        variant="outlined"
-                        color={status.color}
-                        icon={<StatusIcon className="size-3.5" />}
-                        label={statusLabel(r.status)}
-                      />
+                    {/* width 1% + nowrap — колонка ужимается по самому широкому чипу */}
+                    <TableCell sx={{ width: "1%", whiteSpace: "nowrap" }}>
+                      {/* Длинный текст ошибки процессинга обрезается — полностью он в подсказке */}
+                      <Tooltip title={statusLabel(r.status)}>
+                        <Chip
+                          size="small"
+                          variant="outlined"
+                          color={status.color}
+                          icon={<StatusIcon className="size-3" />}
+                          label={shortStatus(statusLabel(r.status))}
+                          sx={{
+                            height: 22,
+                            maxWidth: "100%",
+                            fontSize: 12,
+                            "& .MuiChip-label": { px: 0.75, overflow: "hidden", textOverflow: "ellipsis" },
+                            "& .MuiChip-icon": { ml: 0.5, mr: -0.25 },
+                          }}
+                        />
+                      </Tooltip>
                     </TableCell>
                     <TableCell>
                       <Tooltip title={r.address}>

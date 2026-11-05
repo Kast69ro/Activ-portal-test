@@ -69,3 +69,22 @@ export const dayKey = (ts) => {
 
 /** Сегодня в формате поля date: «2026-10-07» */
 export const today = () => dayKey(Date.now());
+
+/** Вчера в формате поля date: «2026-10-06» */
+export const yesterday = () => {
+  const d = new Date();
+  d.setDate(d.getDate() - 1);
+  return dayKey(d);
+};
+
+/** Сумма выданных сомони за день по каждому банкомату: Map<atmId, сумма> */
+export function dispensedByAtm(transactions, day) {
+  const sums = new Map();
+  for (const t of transactions) {
+    if (!t.dispensed || t.amount <= 0 || t.ts == null || dayKey(t.ts) !== day) continue;
+    if (t.currency && t.currency !== "TJS") continue;
+    const id = String(t.atmId);
+    sums.set(id, (sums.get(id) ?? 0) + t.amount);
+  }
+  return sums;
+}

@@ -12,7 +12,7 @@ import { selectLogin } from "@/shared/model/auth";
 import { useToast } from "@/shared/ui";
 import { useUploadAvatarMutation } from "@/features/chat/api";
 import { selectOnlineUserIds } from "@/features/chat/model/chatSlice";
-import { avatarSrc, initialOf } from "@/features/chat/model/utils";
+import { avatarSrc, getDisplayName, initialOf } from "@/features/chat/model/utils";
 
 const MAX_SIZE_MB = 5;
 
@@ -26,7 +26,7 @@ export function UserHeader({ me }) {
   const [preview, setPreview] = useState(null);
   const [upload, { isLoading }] = useUploadAvatarMutation();
 
-  const name = me?.username ?? login;
+  const name = getDisplayName(me) || login;
   const isOnline = me ? online.includes(me.id) : false;
 
   const handleFile = async (e) => {

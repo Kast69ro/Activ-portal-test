@@ -11,7 +11,7 @@ const BRAND = "FFE31E24";
 export async function exportWorkbook(fileName, sheets) {
   const { default: ExcelJS } = await import("exceljs");
   const workbook = new ExcelJS.Workbook();
-  workbook.creator = "Активбанк — HR-система";
+  workbook.creator = "Активбанк — Activ One";
   workbook.created = new Date();
 
   for (const sheet of sheets) {

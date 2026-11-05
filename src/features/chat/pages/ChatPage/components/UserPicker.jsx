@@ -14,7 +14,7 @@ import { cn } from "@/shared/lib/cn";
 import { useDebounce } from "@/shared/lib/useDebounce";
 import { selectLogin } from "@/shared/model/auth";
 import { useSearchUsersQuery } from "@/features/chat/api";
-import { avatarSrc, initialOf } from "@/features/chat/model/utils";
+import { avatarSrc, getDisplayName, initialOf } from "@/features/chat/model/utils";
 
 /** Поиск и множественный выбор сотрудников для группы. exclude — логины, которых не показывать */
 export function UserPicker({ selected, onChange, exclude = [] }) {
@@ -22,7 +22,7 @@ export function UserPicker({ selected, onChange, exclude = [] }) {
   const login = useSelector(selectLogin);
   const [search, setSearch] = useState("");
   const debounced = useDebounce(search.trim(), 400);
-  const { data: users = [], isFetching } = useSearchUsersQuery(debounced, { skip: !debounced });
+  const { data: users = [], isFetching } = useSearchUsersQuery({ query: debounced, login }, { skip: !debounced });
 
   const results = users.filter((u) => u.username !== login && !exclude.includes(u.username));
   const isSelected = (u) => selected.some((s) => s.id === u.id);
@@ -37,8 +37,8 @@ export function UserPicker({ selected, onChange, exclude = [] }) {
               key={u.id}
               color="primary"
               variant="outlined"
-              avatar={<Avatar src={avatarSrc(u.avatar_url)}>{initialOf(u.username)}</Avatar>}
-              label={u.username}
+              avatar={<Avatar src={avatarSrc(u.avatar_url)}>{initialOf(getDisplayName(u))}</Avatar>}
+              label={getDisplayName(u)}
               onDelete={() => toggle(u)}
             />
           ))}
@@ -80,10 +80,10 @@ export function UserPicker({ selected, onChange, exclude = [] }) {
               )}
             >
               <Avatar src={avatarSrc(u.avatar_url)} sx={{ width: 36, height: 36 }}>
-                {initialOf(u.username)}
+                {initialOf(getDisplayName(u))}
               </Avatar>
               <div className="min-w-0 flex-1">
-                <div className="truncate text-sm font-medium">{u.full_name || u.username}</div>
+                <div className="truncate text-sm font-medium">{getDisplayName(u)}</div>
                 <div className="truncate text-xs text-fg-muted">@{u.username}</div>
               </div>
               <span
