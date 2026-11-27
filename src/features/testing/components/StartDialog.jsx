@@ -1,3 +1,6 @@
+/**
+ * Используют TestsPage и SurveysPage.
+ */
 import { useEffect, useMemo, useState } from "react";
 import { Clock, Play } from "lucide-react";
 import { useTranslation } from "react-i18next";
@@ -16,7 +19,7 @@ import { ALL, employeeName, findById, useGetEmployeesQuery, useGetSubDepartments
 import { SESSION_STATUS, sessionStatus, testTitle } from "@/entities/testing/model";
 import { useGetAssignmentsQuery, useGetSessionsQuery } from "@/entities/testing/testingApi";
 
-import { MAX_DURATION, PRESET_DURATIONS } from "../constants";
+import { MAX_DURATION, PRESET_DURATIONS } from "@/features/testing/model/constants";
 
 /**
  * Запуск теста или опроса для сотрудника (kind = "test" | "survey").

@@ -1,3 +1,6 @@
+/**
+ * Домен chat: регистрация страницы /chat (доступна всем вошедшим).
+ */
 import { lazy } from "react";
 import { MessagesSquare } from "lucide-react";
 
@@ -13,5 +16,5 @@ export default {
   section: "communication",
   order: 10,
   titleKey: "menu",
-  page: lazy(() => import("./ChatPage")),
+  page: lazy(() => import("./pages/ChatPage/ChatPage")),
 };

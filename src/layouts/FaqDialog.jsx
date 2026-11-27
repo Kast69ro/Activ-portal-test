@@ -1,3 +1,6 @@
+/**
+ * Диалог «Частые вопросы» — открывается из шапки (Topbar).
+ */
 import { ChevronDown, CircleHelp } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import Accordion from "@mui/material/Accordion";

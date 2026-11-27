@@ -1,3 +1,6 @@
+/**
+ * Заголовок страницы — используется почти на всех страницах разделов.
+ */
 import { ArrowLeft } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import IconButton from "@mui/material/IconButton";

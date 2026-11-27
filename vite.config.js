@@ -11,6 +11,13 @@ const proxy = {
     changeOrigin: true,
     rewrite: (p) => p.replace(/^\/nbt-rates/, "/ru/kurs/export_xml.php"),
   },
+  // Мониторинг банкоматов (PHP-сервис во внутренней сети). Фронт ходит на VITE_ATM_API_URL=/atm-api,
+  // прокси убирает префикс: /atm-api/services/mtm_atm.php → http://10.64.1.10/services/mtm_atm.php
+  "/atm-api": {
+    target: "http://10.64.1.10",
+    changeOrigin: true,
+    rewrite: (p) => p.replace(/^\/atm-api/, ""),
+  },
 };
 
 // https://vite.dev/config/

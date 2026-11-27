@@ -1,3 +1,6 @@
+/**
+ * Маршрут: /test-history. Доступ: Admin.
+ */
 import { useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router";
 import { Search } from "lucide-react";

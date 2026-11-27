@@ -1,3 +1,6 @@
+/**
+ * Плитка файла: иконка по типу, имя, просмотр и скачивание. Используется в knowledge.
+ */
 import { useState } from "react";
 import { Download, File, FileSpreadsheet, FileText, Image, PlayCircle, Presentation } from "lucide-react";
 import { useTranslation } from "react-i18next";

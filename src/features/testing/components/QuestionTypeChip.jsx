@@ -1,3 +1,6 @@
+/**
+ * Чип типа вопроса (выбор / открытый / рейтинг). Используется на большинстве страниц testing.
+ */
 import { CheckCircle2, PenLine, Star } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import Chip from "@mui/material/Chip";

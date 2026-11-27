@@ -1,3 +1,7 @@
+/**
+ * Роутер приложения. Маршруты строятся из реестра src/features/index.js и делятся на три группы:
+ * публичные (вход), "blank" (на весь экран) и обычные — внутри AppLayout с меню и шапкой.
+ */
 import { Suspense } from "react";
 import { createBrowserRouter } from "react-router";
 import { features } from "@/features";

@@ -1,3 +1,7 @@
+/**
+ * Курсы валют Нацбанка Таджикистана (queryFn с прямым fetch на VITE_RATES_URL, не через сервисы).
+ * Тегов нет. Используется в layouts/RatesWidget.
+ */
 import { env } from "@/config/env";
 import { baseApi } from "./baseApi";
 

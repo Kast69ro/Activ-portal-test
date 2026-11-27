@@ -1,3 +1,6 @@
+/**
+ * Плитка со статистикой. Используется на страницах результатов тестирования.
+ */
 import Card from "@mui/material/Card";
 import { cn } from "@/shared/lib/cn";
 

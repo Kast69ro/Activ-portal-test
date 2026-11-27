@@ -1,11 +1,12 @@
 {
   "brand": {
     "name": "Активбанк",
-    "product": "HR-система"
+    "product": "Activ One"
   },
   "nav": {
     "main": "Основное",
     "administration": "Администрирование",
+    "monitoring": "Мониторинг",
     "knowledge": "База знаний",
     "testing": "Тестирование",
     "communication": "Общение",

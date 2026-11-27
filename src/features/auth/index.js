@@ -1,3 +1,6 @@
+/**
+ * Домен auth: регистрация публичных страниц /login и /register.
+ */
 import { lazy } from "react";
 
 export default [

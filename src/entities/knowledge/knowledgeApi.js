@@ -1,3 +1,7 @@
+/**
+ * API базы знаний (service: "main"). Теги: Folder, Announcement.
+ * Используется доменом knowledge (LibraryView, диалоги).
+ */
 import { baseApi } from "@/shared/api/baseApi";
 import { unwrapItem, unwrapList } from "@/shared/api/normalize";
 

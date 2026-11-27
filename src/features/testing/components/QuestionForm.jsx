@@ -1,3 +1,6 @@
+/**
+ * Используют QuestionsPage и EditorDialog (то есть TestsPage и SurveysPage).
+ */
 import { useEffect, useState } from "react";
 import { Plus, Trash2 } from "lucide-react";
 import { useTranslation } from "react-i18next";

@@ -1,3 +1,6 @@
+/**
+ * Редактор теста или опроса: название, описание, выбор вопросов. Используют TestsPage и SurveysPage.
+ */
 import { useEffect, useMemo, useState } from "react";
 import { ArrowDown, ArrowUp, Search, Trash2 } from "lucide-react";
 import { useTranslation } from "react-i18next";

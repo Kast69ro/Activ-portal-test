@@ -1,3 +1,6 @@
+/**
+ * Форматирование чисел, дат, времени и длительности с учётом текущего языка.
+ */
 import i18n from "@/shared/i18n";
 import { getLocale } from "@/shared/i18n/languages";
 

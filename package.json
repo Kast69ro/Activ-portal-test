@@ -20,12 +20,15 @@
     "emoji-picker-react": "^4.22.3",
     "exceljs": "^4.4.0",
     "i18next": "^26.4.2",
+    "leaflet": "^1.9.4",
     "lucide-react": "^1.52.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-i18next": "^17.0.15",
+    "react-leaflet": "^5.0.0",
     "react-redux": "^9.3.0",
     "react-router": "^7.18.4",
+    "recharts": "^3.10.1",
     "tailwindcss": "^4.1.18"
   },
   "devDependencies": {

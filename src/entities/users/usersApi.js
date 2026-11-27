@@ -1,3 +1,7 @@
+/**
+ * API учётных записей (service: "main"): вход, регистрация, список пользователей. Тегов нет.
+ * Используют: auth (вход/регистрация), layouts/Topbar.
+ */
 import { baseApi } from "@/shared/api/baseApi";
 import { unwrapList } from "@/shared/api/normalize";
 

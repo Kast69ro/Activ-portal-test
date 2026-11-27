@@ -1,3 +1,7 @@
+/**
+ * Redux store: кэш RTK Query, сессия, настройки и слайсы фич (подключаются автоматически
+ * из src/features/*\/model/*Slice.js). Здесь же — сохранение настроек и сессии в localStorage.
+ */
 import { combineSlices, configureStore, createListenerMiddleware, isAnyOf } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query";
 import { baseApi, bindStore } from "@/shared/api/baseApi";
@@ -19,10 +23,10 @@ import {
  *   api        — кэш всех запросов (RTK Query). Эндпоинты — в src/entities/* и src/features/*\/<feature>Api.js
  *   auth       — сессия: токен, пользователь, роли (src/shared/model/auth.js)
  *   settings   — тема, язык, свёрнутое меню (src/shared/model/settings.js)
- *   <feature>  — слайсы фич: каждый файл src/features/<feature>/<feature>Slice.js
+ *   <feature>  — слайсы фич: каждый файл src/features/<feature>/model/*Slice.js
  *                с `export default slice` подключается сюда автоматически
  */
-const featureSlices = Object.values(import.meta.glob("../features/*/*Slice.js", { eager: true, import: "default" }));
+const featureSlices = Object.values(import.meta.glob("../features/*/model/*Slice.js", { eager: true, import: "default" }));
 
 export const rootReducer = combineSlices(baseApi, authSlice, settingsSlice, ...featureSlices);
 

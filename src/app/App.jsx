@@ -1,3 +1,6 @@
+/**
+ * Корневой компонент: Redux store, тема MUI, тосты/подтверждения и роутер.
+ */
 import { Provider } from "react-redux";
 import { RouterProvider } from "react-router";
 import { FeedbackProvider } from "@/shared/ui";
